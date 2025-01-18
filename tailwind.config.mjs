@@ -19,6 +19,7 @@ export default {
 				},
 				shades: {
 					"lagoon-50": "#B6C7F3",
+					"lagoon-75": "#91ABEC",
 				},
 			},
 			fontFamily: {

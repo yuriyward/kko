@@ -2,12 +2,13 @@
 import Header from "../components/Header.astro";
 import { Image } from "astro:assets";
 import kateHello from "../assets/kate_hello_sqr.webp";
+import Sliders from "../components/sliders/Sliders.astro";
 ---
 
 <div class="text-secondary-night">
     <Header />
     <!-- Who I am? -->
-    <div class="my-20 md:px-40 px-auto">
+    <section class="my-20 md:px-40 px-auto">
         <div class="flex items-center gap-14 mb-8">
             <Image
                 src={kateHello}
@@ -26,9 +27,12 @@ import kateHello from "../assets/kate_hello_sqr.webp";
                 </p>
             </div>
         </div>
-    </div>
+    </section>
 
-    <div class="bg-primary-cotton flex flex-1 md:px-40 px-auto py-20 gap-52">
+    <!-- Services section -->
+    <section
+        class="bg-primary-cotton flex flex-1 md:px-40 px-auto py-20 gap-52"
+    >
         <div class="flex flex-col gap-14">
             <h2 class="text-displayMedium">
                 ...через
@@ -54,5 +58,11 @@ import kateHello from "../assets/kate_hello_sqr.webp";
                 роботи в команді та визначення цілей.
             </p>
         </div>
-    </div>
+    </section>
+
+    <!-- Sliders section -->
+    <section class="md:px-40 px-auto py-20 gap-12 flex flex-col">
+        <h2 class="text-displayMedium text-center">Пакети</h2>
+        <Sliders />
+    </section>
 </div>
