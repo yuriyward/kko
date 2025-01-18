@@ -1,0 +1,58 @@
+---
+import Header from "../components/Header.astro";
+import { Image } from "astro:assets";
+import kateHello from "../assets/kate_hello_sqr.webp";
+---
+
+<div class="text-secondary-night">
+    <Header />
+    <!-- Who I am? -->
+    <div class="my-20 md:px-40 px-auto">
+        <div class="flex items-center gap-14 mb-8">
+            <Image
+                src={kateHello}
+                alt="A profile picture of Kate holding notes, she is brunet and smiling. Mood of picture is warm and positive"
+                class={"w-[332px] h-[342px] rounded-full object-cover"}
+                quality={"high"}
+            />
+
+            <div class="flex flex-col gap-5">
+                <h1 class="font-amatic text-[144px] leading-[150px]">
+                    ПРИВІТ, МЕНЕ ЗВАТИ КАТЯ
+                </h1>
+                <p class="text-[48px] leading-[1.2]">
+                    Я покращую командну взаємодію та відкриваю потенціали
+                    людей...
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="bg-primary-cotton flex flex-1 md:px-40 px-auto py-20 gap-52">
+        <div class="flex flex-col gap-14">
+            <h2 class="text-displayMedium">
+                ...через
+                <span class="bg-shades-lagoon-50 px-2 py-0.5 rounded-full">
+                    консультацію
+                </span>
+            </h2>
+            <p class="text-displayXSmall">
+                Професійна підтримка та інструменти з мого досвіду для дизайну
+                вашої кар'єри та покращення робочих комунікацій.
+            </p>
+        </div>
+
+        <div class="flex flex-col gap-14">
+            <h2 class="text-displayMedium">
+                ...через
+                <span class="bg-primary-eggnog px-2 py-0.5 rounded-full">
+                    фасилітацію
+                </span>
+            </h2>
+            <p class="text-displayXSmall">
+                Проведення інтерактивних сесій для генерації ідей, покращення
+                роботи в команді та визначення цілей.
+            </p>
+        </div>
+    </div>
+</div>

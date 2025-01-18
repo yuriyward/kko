@@ -1,0 +1,27 @@
+---
+import Button from "./Button.astro";
+import ArrowRight from "../assets/arrow-right.svg";
+import KKoLogo from "../assets/kko-logo.svg";
+---
+
+<header class="flex pt-4 px-8 justify-between">
+    <div class="flex gap-12 items-end">
+        <KKoLogo class={"cursor-pointer h-11"} />
+        <nav class="flex gap-12 text-caption">
+            <a href="#">Пакети</a>
+            <a href="#">Про мене</a>
+            <a href="#">Блог</a>
+        </nav>
+    </div>
+    <div class="flex gap-4 items-center">
+        <div class="text-caption">
+            <span class="underline cursor-pointer">UA</span>
+            <span>/</span>
+            <span class="cursor-pointer">EN</span>
+        </div>
+
+        <Button text="Розпочати проект" href="#footer">
+            <ArrowRight slot="after" title="arrow right icon" class="w-4 h-4" />
+        </Button>
+    </div>
+</header>

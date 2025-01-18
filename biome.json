@@ -39,7 +39,7 @@
 			},
 			"correctness": {
 				"recommended": true,
-				"noUnusedImports": "error",
+				"noUnusedImports": "warn",
 				"noUnusedVariables": "error",
 				"noUnusedLabels": "error",
 				"noUnusedFunctionParameters": "error"
@@ -57,5 +57,22 @@
 		"formatter": {
 			"trailingCommas": "es5"
 		}
-	}
+	},
+	"overrides": [
+		{
+			"include": ["*.astro"],
+			"linter": {
+				"rules": {
+					"style": {
+						"useConst": "off",
+						"useImportType": "off"
+					},
+					"correctness": {
+						"noUnusedImports": "off",
+						"noUnusedVariables": "off"
+					}
+				}
+			}
+		}
+	]
 }

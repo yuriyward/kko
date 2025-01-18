@@ -1,0 +1,27 @@
+---
+interface Props {
+    text: string;
+    href?: string;
+    onClick?: string;
+}
+
+const { text, href, onClick } = Astro.props;
+const commonStyles =
+    "inline-block bg-secondary-night text-white text-button p-2.5 rounded-full hover:bg-gray-800 transition-colors cursor-pointer flex items-center gap-2";
+---
+
+{
+    href ? (
+        <a href={href} class={commonStyles}>
+            <slot name="before" />
+            {text}
+            <slot name="after" />
+        </a>
+    ) : (
+        <button onclick={onClick} class={commonStyles}>
+            <slot name="before" />
+            {text}
+            <slot name="after" />
+        </button>
+    )
+}
