@@ -1,7 +1,6 @@
 ---
-import Button from "./Button.astro";
-import ArrowRight from "../assets/arrow-right.svg";
-import KKoLogo from "../assets/kko-logo.svg";
+import KKoLogo from "@assets/kko-logo.svg";
+import ButtonAction from "@components/button/ButtonAction.astro";
 ---
 
 <header class="flex pt-4 px-8 justify-between">
@@ -20,8 +19,6 @@ import KKoLogo from "../assets/kko-logo.svg";
             <span class="cursor-pointer">EN</span>
         </div>
 
-        <Button text="Розпочати проект" href="#footer">
-            <ArrowRight slot="after" title="arrow right icon" class="w-4 h-4" />
-        </Button>
+        <ButtonAction text="Розпочати проект" href="#footer" />
     </div>
 </header>

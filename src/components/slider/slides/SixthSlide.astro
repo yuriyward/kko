@@ -1,11 +1,15 @@
 ---
-import Button from "../Button.astro";
-import ArrowRight from "../../assets/arrow-right.svg";
+import ButtonAction from "@components/button/ButtonAction.astro";
+const { class: className, ...rest } = Astro.props;
 ---
 
-<div class="bg-shades-lagoon-75 rounded-3xl p-12 flex gap-20">
+<div
+    class="bg-shades-eggnog-30 rounded-3xl flex p-12 flex-col gap-10 lg:flex-row lg:gap-20"
+    class={className}
+    {...rest}
+>
     <div class="flex justify-between items-end">
-        <h2 class="text-displaySmall">Брейнштормінг</h2>
+        <h2 class="text-displaySmall">Ефективна комунікація</h2>
     </div>
 
     <div class="flex flex-col justify-between">
@@ -43,13 +47,7 @@ import ArrowRight from "../../assets/arrow-right.svg";
         </div>
 
         <div>
-            <Button text="Розпочати проект">
-                <ArrowRight
-                    slot="after"
-                    title="arrow right icon"
-                    class="w-4 h-4"
-                />
-            </Button>
+            <ButtonAction text="Розпочати проект" />
         </div>
     </div>
 </div>

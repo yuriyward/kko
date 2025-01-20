@@ -2,7 +2,7 @@
 import Header from "../components/Header.astro";
 import { Image } from "astro:assets";
 import kateHello from "../assets/kate_hello_sqr.webp";
-import Sliders from "../components/sliders/Sliders.astro";
+import Slider from "../components/slider/Slider.astro";
 ---
 
 <div class="text-secondary-night">
@@ -61,8 +61,8 @@ import Sliders from "../components/sliders/Sliders.astro";
     </section>
 
     <!-- Sliders section -->
-    <section class="md:px-40 px-auto py-20 gap-12 flex flex-col">
-        <h2 class="text-displayMedium text-center">Пакети</h2>
-        <Sliders />
+    <section class="md:px-40 px-auto py-20 gap-12 flex flex-col items-center">
+        <h2 class="text-displayMedium">Пакети</h2>
+        <Slider />
     </section>
 </div>

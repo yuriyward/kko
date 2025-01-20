@@ -1,0 +1,53 @@
+---
+import ButtonAction from "@components/button/ButtonAction.astro";
+const { class: className, ...rest } = Astro.props;
+---
+
+<div
+    class="bg-shades-lagoon-30 rounded-3xl flex p-12 flex-col gap-10 lg:flex-row lg:gap-20"
+    class={className}
+    {...rest}
+>
+    <div class="flex justify-between items-end">
+        <h2 class="text-displaySmall">Командні ритуали</h2>
+    </div>
+
+    <div class="flex flex-col justify-between">
+        <div class="flex flex-col gap-2">
+            <h3 class="text-heading">Ціль</h3>
+            <p class="text-caption">
+                Генерація нових ідей та рішень для поточних або нових проектів.
+            </p>
+        </div>
+        <div class="flex flex-col gap-2">
+            <h3 class="text-heading">Тривалість</h3>
+            <p class="text-caption">2-3 години.</p>
+        </div>
+
+        <div class="flex flex-col gap-2">
+            <h3 class="text-heading">Кому підійде</h3>
+            <p class="text-caption">
+                Командам, які шукають інноваційні рішення або нові ідеї для
+                розвитку продуктів.
+            </p>
+        </div>
+    </div>
+
+    <div class="flex flex-col gap-10">
+        <div class="flex flex-col gap-2">
+            <h3 class="text-heading">Що отримаєте</h3>
+            <ul class="text-caption space-y-5 list-disc list-outside ml-6">
+                <li>Підготовка зустрічі для визначення теми брейнштрому.</li>
+                <li>Проведення інтенсивної сесії для генерації ідей.</li>
+                <li>
+                    Структурований аналіз ідей і визначення ключових напрямків.
+                </li>
+                <li>Післясесійний звіт з висновками та планом дій.</li>
+            </ul>
+        </div>
+
+        <div>
+            <ButtonAction text="Розпочати проект" />
+        </div>
+    </div>
+</div>

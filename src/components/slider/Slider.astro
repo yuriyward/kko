@@ -1,0 +1,94 @@
+---
+import FirstSlide from "./slides/FirstSlide.astro";
+import SecondSlide from "./slides/SecondSlide.astro";
+import ThirdSlide from "./slides/ThirdSlide.astro";
+import FourthSlide from "./slides/FourthSlide.astro";
+import FifthSlide from "./slides/FifthSlide.astro";
+import SixthSlide from "./slides/SixthSlide.astro";
+---
+
+<!--  pt-[13.5rem] -->
+<div class="overflow-hidden max-w-7xl self-center">
+    <div class="swiper-body">
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><FirstSlide /></div>
+                <div class="swiper-slide"><SecondSlide /></div>
+                <div class="swiper-slide"><ThirdSlide /></div>
+                <div class="swiper-slide"><FourthSlide /></div>
+                <div class="swiper-slide"><FifthSlide /></div>
+                <div class="swiper-slide"><SixthSlide /></div>
+            </div>
+            <div class="swiper-pagination"></div>
+            <!-- <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div> -->
+            <!-- <div class="swiper-scrollbar"></div> -->
+        </div>
+    </div>
+</div>
+
+<style>
+    .swiper-body {
+        /* position: relative; */
+        /* overflow: hidden; */
+        /* height: 800px; */
+    }
+    .swiper {
+        width: 100%;
+        height: auto;
+        /* height: 400px; */
+    }
+    .swiper-slide {
+        max-height: 800px;
+    }
+</style>
+
+<script>
+    import Swiper from "swiper";
+    import {
+        Pagination,
+        Navigation,
+        Autoplay,
+        EffectCards,
+        Mousewheel,
+    } from "swiper/modules";
+
+    import "swiper/css";
+    import "swiper/css/effect-cards";
+    import "swiper/css/pagination";
+    import "swiper/css/navigation";
+    import "swiper/css/autoplay";
+
+    const swiper = new Swiper(".mySwiper", {
+        modules: [EffectCards, Pagination, Navigation, Autoplay, Mousewheel],
+        effect: "cards",
+        direction: "vertical",
+        grabCursor: true,
+        mousewheel: true,
+        navigation: false,
+        slideToClickedSlide: true,
+        autoHeight: true,
+        // slidesPerView: 1,
+        cardsEffect: {
+            perSlideOffset: 30,
+            perSlideRotate: 0,
+            rotate: true,
+            slideShadows: false,
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        // autoplay: {
+        //     delay: 3000,
+        //     pauseOnMouseEnter: true,
+        // },
+        // on: {
+        // 	autoplayTimeLeft(s, time, progress) {
+        // 		if (progressCircle) {
+        // 			progressCircle.style.setProperty("--progress", 1 - progress);
+        // 		}
+        // 	},
+        // },
+    });
+</script>
