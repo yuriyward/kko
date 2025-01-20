@@ -8,8 +8,13 @@ import SixthSlide from "./slides/SixthSlide.astro";
 ---
 
 <!--  pt-[13.5rem] -->
-<div class="overflow-hidden max-w-7xl self-center">
-    <div class="swiper-body">
+<div class="overflow-hidden max-w-7xl relative">
+    <div
+        class="swiper-pagination p-2 rounded-full bg-primary-cotton !absolute !left-0 !right-auto !top-[10%]"
+    >
+    </div>
+
+    <div class="swiper-body ml-9">
         <div class="swiper mySwiper">
             <div class="swiper-wrapper">
                 <div class="swiper-slide"><FirstSlide /></div>
@@ -19,7 +24,7 @@ import SixthSlide from "./slides/SixthSlide.astro";
                 <div class="swiper-slide"><FifthSlide /></div>
                 <div class="swiper-slide"><SixthSlide /></div>
             </div>
-            <div class="swiper-pagination"></div>
+            <!-- <div class="swiper-pagination"></div> -->
             <!-- <div class="swiper-button-prev"></div>
             <div class="swiper-button-next"></div> -->
             <!-- <div class="swiper-scrollbar"></div> -->
@@ -28,18 +33,26 @@ import SixthSlide from "./slides/SixthSlide.astro";
 </div>
 
 <style>
-    .swiper-body {
-        /* position: relative; */
-        /* overflow: hidden; */
-        /* height: 800px; */
-    }
     .swiper {
         width: 100%;
-        height: auto;
+        /* height: auto; */
         /* height: 400px; */
     }
     .swiper-slide {
-        max-height: 800px;
+        max-height: 900px;
+    }
+
+    :global(.swiper-pagination-bullet) {
+        opacity: 0.5;
+    }
+
+    :global(.swiper-pagination-bullet:hover) {
+        transition: opacity 0.3s ease;
+        opacity: 0.8;
+    }
+
+    :global(.swiper-pagination-bullet-active) {
+        opacity: 1;
     }
 </style>
 
@@ -63,14 +76,14 @@ import SixthSlide from "./slides/SixthSlide.astro";
         modules: [EffectCards, Pagination, Navigation, Autoplay, Mousewheel],
         effect: "cards",
         direction: "vertical",
-        grabCursor: true,
-        mousewheel: true,
-        navigation: false,
         slideToClickedSlide: true,
+        grabCursor: true,
+        mousewheel: false,
+        navigation: false,
         autoHeight: true,
         // slidesPerView: 1,
         cardsEffect: {
-            perSlideOffset: 30,
+            perSlideOffset: 13,
             perSlideRotate: 0,
             rotate: true,
             slideShadows: false,
