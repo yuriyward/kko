@@ -28,7 +28,7 @@ export default {
 			},
 			fontFamily: {
 				sans: ["Nunito Variable", ...defaultTheme.fontFamily.sans],
-				amatic: ["Amatic SC", "Brush Script MT", "cursive"],
+				amatic: ["Amatic SC", "Caveat", "Indie Flower", "cursive"],
 			},
 			fontSize: {
 				displayXLarge: ["128px", { lineHeight: "1.5", fontWeight: "800" }], // 800 corresponds to ExtraBold
