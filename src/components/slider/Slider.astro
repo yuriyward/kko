@@ -34,29 +34,19 @@ import SixthSlide from "./slides/SixthSlide.astro";
 </div>
 
 <style>
-    :global(:root) {
+    :root {
         --swiper-navigation-size: 14px !important;
         --swiper-navigation-color: black !important;
     }
 
-    .swiper {
-        /* height: auto; */
-        /* max-height: 1200px; */
-    }
     .swiper-slide {
-        display: flex;
-        justify-content: center;
-        align-items: end;
-        border-radius: 50px;
-        cursor: pointer;
+        @apply flex justify-center items-end rounded-[50px] cursor-pointer;
     }
 
+    /* Navigation buttons */
     .swiper-button-prev,
     .swiper-button-next {
-        --nav-button-spacing: 160px;
-        width: 24px;
-        height: 24px;
-        margin-left: 12px;
+        @apply w-6 h-6 ml-3;
         left: 0 !important;
         right: auto !important;
         transform: rotate(90deg);
@@ -66,31 +56,31 @@ import SixthSlide from "./slides/SixthSlide.astro";
     .swiper-button-prev {
         top: 40% !important;
     }
-
     .swiper-button-next {
         top: 56.5% !important;
     }
 
     .swiper-button-prev::after,
     .swiper-button-next::after {
-        padding: 7px;
+        @apply p-[7px];
     }
 
-    :global(.swiper-slide-active) {
-        cursor: grab !important;
+    /* Active slide */
+    .swiper-slide-active {
+        @apply cursor-grab;
     }
 
-    :global(.swiper-pagination-bullet) {
-        opacity: 0.5;
+    /* Pagination */
+    .swiper-pagination-bullet {
+        @apply opacity-50 transition-opacity duration-300;
     }
 
-    :global(.swiper-pagination-bullet:hover) {
-        transition: opacity 0.3s ease;
-        opacity: 0.8;
+    .swiper-pagination-bullet:hover {
+        @apply opacity-80;
     }
 
-    :global(.swiper-pagination-bullet-active) {
-        opacity: 1;
+    .swiper-pagination-bullet-active {
+        @apply opacity-100;
     }
 </style>
 
@@ -114,13 +104,7 @@ import SixthSlide from "./slides/SixthSlide.astro";
         modules: [EffectCards, Pagination, Navigation, Autoplay, Mousewheel],
         effect: "cards",
         direction: "vertical",
-        // centeredSlides: true,
-        // navigation: true,
-        // autoHeight: true,
         slideToClickedSlide: true,
-        // slidesPerView: 1,
-        // watchSlidesProgress: true, // Add this
-        // allowTouchMove: true, // Add this
         cardsEffect: {
             perSlideOffset: 25,
             perSlideRotate: 0,
@@ -140,16 +124,9 @@ import SixthSlide from "./slides/SixthSlide.astro";
             nextEl: ".swiper-button-next",
             prevEl: ".swiper-button-prev",
         },
-        // autoplay: {
-        //     delay: 3000,
-        //     pauseOnMouseEnter: true,
-        // },
-        // on: {
-        // 	autoplayTimeLeft(s, time, progress) {
-        // 		if (progressCircle) {
-        // 			progressCircle.style.setProperty("--progress", 1 - progress);
-        // 		}
-        // 	},
-        // },
+        autoplay: {
+            delay: 3000,
+            pauseOnMouseEnter: true,
+        },
     });
 </script>
