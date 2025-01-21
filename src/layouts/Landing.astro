@@ -2,14 +2,16 @@
 import Header from "../components/Header.astro";
 import { Image } from "astro:assets";
 import kateHello from "../assets/kate_hello_sqr.webp";
-import Sliders from "../components/sliders/Sliders.astro";
+import Slider from "../components/slider/Slider.astro";
 ---
 
 <div class="text-secondary-night">
     <Header />
     <!-- Who I am? -->
-    <section class="my-20 md:px-40 px-auto">
-        <div class="flex items-center gap-14 mb-8">
+    <section class="my-20 lg:px-40 px-auto">
+        <div
+            class="flex items-center gap-7 lg:gap-14 mb-8 lg:flex-row flex-col"
+        >
             <Image
                 src={kateHello}
                 alt="A profile picture of Kate holding notes, she is brunet and smiling. Mood of picture is warm and positive"
@@ -17,11 +19,13 @@ import Sliders from "../components/sliders/Sliders.astro";
                 quality={"high"}
             />
 
-            <div class="flex flex-col gap-5">
-                <h1 class="font-amatic text-[144px] leading-[150px]">
+            <div class="flex flex-col gap-5 items-center lg:items-start">
+                <h1
+                    class="font-amatic text-[144px] leading-[150px] text-center lg:text-left"
+                >
                     ПРИВІТ, МЕНЕ ЗВАТИ КАТЯ
                 </h1>
-                <p class="text-[48px] leading-[1.2]">
+                <p class="text-[48px] leading-[1.2] text-center lg:text-left">
                     Я покращую командну взаємодію та відкриваю потенціали
                     людей...
                 </p>
@@ -31,7 +35,7 @@ import Sliders from "../components/sliders/Sliders.astro";
 
     <!-- Services section -->
     <section
-        class="bg-primary-cotton flex flex-1 md:px-40 px-auto py-20 gap-52"
+        class="bg-primary-cotton flex flex-1 md:px-40 px-auto py-20 gap-10 lg:gap-24 xl:gap-52 lg:flex-row flex-col items-center text-center lg:text-left"
     >
         <div class="flex flex-col gap-14">
             <h2 class="text-displayMedium">
@@ -61,8 +65,8 @@ import Sliders from "../components/sliders/Sliders.astro";
     </section>
 
     <!-- Sliders section -->
-    <section class="md:px-40 px-auto py-20 gap-12 flex flex-col">
-        <h2 class="text-displayMedium text-center">Пакети</h2>
-        <Sliders />
+    <section class="xl:mx-40 md:mx-4 mx-2 py-20 flex flex-col items-center">
+        <h2 class="text-displayMedium pb-1">Пакети</h2>
+        <Slider />
     </section>
 </div>

@@ -20,11 +20,15 @@ export default {
 				shades: {
 					"lagoon-50": "#B6C7F3",
 					"lagoon-75": "#91ABEC",
+					"lagoon-30": "#D3DDF8",
+					"lagoon-20": "#E2E9FA",
+					"eggnog-50": "#FFF3D1",
+					"eggnog-30": "#FFF8E3",
 				},
 			},
 			fontFamily: {
 				sans: ["Nunito Variable", ...defaultTheme.fontFamily.sans],
-				amatic: ["Amatic SC", "cursive"],
+				amatic: ["Amatic SC", "Caveat", "Indie Flower", "cursive"],
 			},
 			fontSize: {
 				displayXLarge: ["128px", { lineHeight: "1.5", fontWeight: "800" }], // 800 corresponds to ExtraBold

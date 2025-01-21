@@ -1,0 +1,132 @@
+---
+import FirstSlide from "./slides/FirstSlide.astro";
+import SecondSlide from "./slides/SecondSlide.astro";
+import ThirdSlide from "./slides/ThirdSlide.astro";
+import FourthSlide from "./slides/FourthSlide.astro";
+import FifthSlide from "./slides/FifthSlide.astro";
+import SixthSlide from "./slides/SixthSlide.astro";
+---
+
+<div class="w-full max-w-7xl relative overflow-hidden pt-20 pb-52">
+    <!-- Controls -->
+    <div class="swiper-button-prev"></div>
+    <div
+        class="swiper-pagination p-2 rounded-full bg-primary-cotton !absolute !left-0 !right-auto !top-[50%]"
+    >
+    </div>
+    <div class="swiper-button-next"></div>
+
+    <!-- Sliders -->
+    <div class="swiper-body ml-9">
+        <div
+            class="swiper w-full lg:max-h-[630px] md:h-[760px] sm-h-[800px] max-h-[900px]"
+        >
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><FirstSlide /></div>
+                <div class="swiper-slide"><SecondSlide /></div>
+                <div class="swiper-slide"><ThirdSlide /></div>
+                <div class="swiper-slide"><FourthSlide /></div>
+                <div class="swiper-slide"><FifthSlide /></div>
+                <div class="swiper-slide"><SixthSlide /></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    :root {
+        --swiper-navigation-size: 14px !important;
+        --swiper-navigation-color: black !important;
+    }
+
+    .swiper-slide {
+        @apply flex justify-center items-end rounded-[50px] cursor-pointer;
+    }
+
+    /* Navigation buttons */
+    .swiper-button-prev,
+    .swiper-button-next {
+        @apply w-6 h-6 ml-3;
+        left: 0 !important;
+        right: auto !important;
+        transform: rotate(90deg);
+        transform-origin: left center;
+    }
+
+    .swiper-button-prev {
+        top: 40% !important;
+    }
+    .swiper-button-next {
+        top: 56.5% !important;
+    }
+
+    .swiper-button-prev::after,
+    .swiper-button-next::after {
+        @apply p-[7px];
+    }
+
+    /* Active slide */
+    .swiper-slide-active {
+        @apply cursor-grab;
+    }
+
+    /* Pagination */
+    .swiper-pagination-bullet {
+        @apply opacity-50 transition-opacity duration-300;
+    }
+
+    .swiper-pagination-bullet:hover {
+        @apply opacity-80;
+    }
+
+    .swiper-pagination-bullet-active {
+        @apply opacity-100;
+    }
+</style>
+
+<script>
+    import Swiper from "swiper";
+    import {
+        Pagination,
+        Navigation,
+        Autoplay,
+        EffectCards,
+        Mousewheel,
+    } from "swiper/modules";
+
+    import "swiper/css";
+    import "swiper/css/effect-cards";
+    import "swiper/css/pagination";
+    import "swiper/css/navigation";
+    import "swiper/css/autoplay";
+
+    const swiper = new Swiper(".swiper", {
+        modules: [EffectCards, Pagination, Navigation, Autoplay, Mousewheel],
+        effect: "cards",
+        direction: "vertical",
+        slideToClickedSlide: true,
+        cardsEffect: {
+            perSlideOffset: 25,
+            perSlideRotate: 0,
+            rotate: true,
+            slideShadows: false,
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+        on: {
+            click: function (swiper, event) {
+                console.log(event);
+            },
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+        },
+        autoplay: {
+            delay: 3000,
+            pauseOnMouseEnter: true,
+        },
+    });
+</script>

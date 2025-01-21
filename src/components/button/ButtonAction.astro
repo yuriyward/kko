@@ -1,0 +1,13 @@
+---
+import Button from "./Button.astro";
+import ArrowRight from "@assets/arrow-right.svg";
+import type { Props as ButtonProps } from "./Button.astro";
+
+type Props = ButtonProps;
+
+const { ...rest } = Astro.props;
+---
+
+<Button {...rest}>
+    <ArrowRight slot="after" title="arrow right icon" class="w-5 h-4" />
+</Button>
