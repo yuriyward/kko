@@ -7,7 +7,7 @@ import FifthSlide from "./slides/FifthSlide.astro";
 import SixthSlide from "./slides/SixthSlide.astro";
 ---
 
-<div class="w-full max-w-7xl relative overflow-hidden py-20">
+<div class="w-full max-w-7xl relative overflow-hidden pt-20 pb-52">
     <!-- Controls -->
     <div class="swiper-button-prev"></div>
     <div
@@ -18,7 +18,9 @@ import SixthSlide from "./slides/SixthSlide.astro";
 
     <!-- Sliders -->
     <div class="swiper-body ml-9">
-        <div class="swiper">
+        <div
+            class="swiper w-full 2xl:max-h-[630px] xl:max-h-[770px] md:h-[780px] sm-h-[850px] max-h-[900px]"
+        >
             <div class="swiper-wrapper">
                 <div class="swiper-slide"><FirstSlide /></div>
                 <div class="swiper-slide"><SecondSlide /></div>
@@ -38,18 +40,14 @@ import SixthSlide from "./slides/SixthSlide.astro";
     }
 
     .swiper {
-        width: 100%;
-        height: 600px;
-        /* width: 100%; */
         /* height: auto; */
         /* max-height: 1200px; */
     }
     .swiper-slide {
-        /* height: 200px; */
         display: flex;
         justify-content: center;
         align-items: end;
-        border-radius: 1rem;
+        border-radius: 50px;
         cursor: pointer;
     }
 
@@ -66,11 +64,11 @@ import SixthSlide from "./slides/SixthSlide.astro";
     }
 
     .swiper-button-prev {
-        top: 38% !important;
+        top: 40% !important;
     }
 
     .swiper-button-next {
-        top: 57.5% !important;
+        top: 56.5% !important;
     }
 
     .swiper-button-prev::after,
@@ -110,7 +108,7 @@ import SixthSlide from "./slides/SixthSlide.astro";
     import "swiper/css/effect-cards";
     import "swiper/css/pagination";
     import "swiper/css/navigation";
-    // import "swiper/css/autoplay";
+    import "swiper/css/autoplay";
 
     const swiper = new Swiper(".swiper", {
         modules: [EffectCards, Pagination, Navigation, Autoplay, Mousewheel],
@@ -124,7 +122,7 @@ import SixthSlide from "./slides/SixthSlide.astro";
         // watchSlidesProgress: true, // Add this
         // allowTouchMove: true, // Add this
         cardsEffect: {
-            perSlideOffset: 20,
+            perSlideOffset: 25,
             perSlideRotate: 0,
             rotate: true,
             slideShadows: false,

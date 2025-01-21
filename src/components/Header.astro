@@ -4,16 +4,16 @@ import ButtonAction from "@components/button/ButtonAction.astro";
 ---
 
 <header class="flex pt-4 px-8 justify-between">
-    <div class="flex gap-12 items-end">
+    <div class="flex gap-4 lg:gap-12 items-end">
         <KKoLogo class={"cursor-pointer h-11"} />
-        <nav class="flex gap-12 text-caption">
+        <nav class="md:flex hidden gap-4 lg:gap-12 text-caption">
             <a href="#">Пакети</a>
             <a href="#">Про мене</a>
             <a href="#">Блог</a>
         </nav>
     </div>
     <div class="flex gap-4 items-center">
-        <div class="text-caption">
+        <div class="text-caption hidden md:flex">
             <span class="underline cursor-pointer">UA</span>
             <span>/</span>
             <span class="cursor-pointer">EN</span>
