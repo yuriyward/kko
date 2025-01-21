@@ -7,15 +7,18 @@ import FifthSlide from "./slides/FifthSlide.astro";
 import SixthSlide from "./slides/SixthSlide.astro";
 ---
 
-<!--  pt-[13.5rem] -->
-<div class="overflow-hidden max-w-7xl relative">
+<div class="w-full max-w-7xl relative overflow-hidden py-20">
+    <!-- Controls -->
+    <div class="swiper-button-prev"></div>
     <div
-        class="swiper-pagination p-2 rounded-full bg-primary-cotton !absolute !left-0 !right-auto !top-[10%]"
+        class="swiper-pagination p-2 rounded-full bg-primary-cotton !absolute !left-0 !right-auto !top-[50%]"
     >
     </div>
+    <div class="swiper-button-next"></div>
 
+    <!-- Sliders -->
     <div class="swiper-body ml-9">
-        <div class="swiper mySwiper">
+        <div class="swiper">
             <div class="swiper-wrapper">
                 <div class="swiper-slide"><FirstSlide /></div>
                 <div class="swiper-slide"><SecondSlide /></div>
@@ -24,22 +27,59 @@ import SixthSlide from "./slides/SixthSlide.astro";
                 <div class="swiper-slide"><FifthSlide /></div>
                 <div class="swiper-slide"><SixthSlide /></div>
             </div>
-            <!-- <div class="swiper-pagination"></div> -->
-            <!-- <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div> -->
-            <!-- <div class="swiper-scrollbar"></div> -->
         </div>
     </div>
 </div>
 
 <style>
+    :global(:root) {
+        --swiper-navigation-size: 14px !important;
+        --swiper-navigation-color: black !important;
+    }
+
     .swiper {
         width: 100%;
+        height: 600px;
+        /* width: 100%; */
         /* height: auto; */
-        /* height: 400px; */
+        /* max-height: 1200px; */
     }
     .swiper-slide {
-        max-height: 900px;
+        /* height: 200px; */
+        display: flex;
+        justify-content: center;
+        align-items: end;
+        border-radius: 1rem;
+        cursor: pointer;
+    }
+
+    .swiper-button-prev,
+    .swiper-button-next {
+        --nav-button-spacing: 160px;
+        width: 24px;
+        height: 24px;
+        margin-left: 12px;
+        left: 0 !important;
+        right: auto !important;
+        transform: rotate(90deg);
+        transform-origin: left center;
+    }
+
+    .swiper-button-prev {
+        top: 38% !important;
+    }
+
+    .swiper-button-next {
+        top: 57.5% !important;
+    }
+
+    .swiper-button-prev::after,
+    .swiper-button-next::after {
+        padding: 7px;
+    }
+
+    :global(.swiper-slide-active) {
+        cursor: grab !important;
     }
 
     :global(.swiper-pagination-bullet) {
@@ -70,20 +110,21 @@ import SixthSlide from "./slides/SixthSlide.astro";
     import "swiper/css/effect-cards";
     import "swiper/css/pagination";
     import "swiper/css/navigation";
-    import "swiper/css/autoplay";
+    // import "swiper/css/autoplay";
 
-    const swiper = new Swiper(".mySwiper", {
+    const swiper = new Swiper(".swiper", {
         modules: [EffectCards, Pagination, Navigation, Autoplay, Mousewheel],
         effect: "cards",
         direction: "vertical",
+        // centeredSlides: true,
+        // navigation: true,
+        // autoHeight: true,
         slideToClickedSlide: true,
-        grabCursor: true,
-        mousewheel: false,
-        navigation: false,
-        autoHeight: true,
         // slidesPerView: 1,
+        // watchSlidesProgress: true, // Add this
+        // allowTouchMove: true, // Add this
         cardsEffect: {
-            perSlideOffset: 13,
+            perSlideOffset: 20,
             perSlideRotate: 0,
             rotate: true,
             slideShadows: false,
@@ -91,6 +132,15 @@ import SixthSlide from "./slides/SixthSlide.astro";
         pagination: {
             el: ".swiper-pagination",
             clickable: true,
+        },
+        on: {
+            click: function (swiper, event) {
+                console.log(event);
+            },
+        },
+        navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
         },
         // autoplay: {
         //     delay: 3000,

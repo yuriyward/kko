@@ -1,13 +1,10 @@
 ---
 import ButtonAction from "@components/button/ButtonAction.astro";
+import Slide from "./Slide.astro";
 const { class: className, ...rest } = Astro.props;
 ---
 
-<div
-    class="bg-shades-eggnog-30 rounded-3xl flex p-12 flex-col gap-10 lg:flex-row lg:gap-20"
-    class={className}
-    {...rest}
->
+<Slide class="bg-shades-eggnog-30">
     <div class="flex justify-between items-end">
         <h2 class="text-displaySmall">Ефективна комунікація</h2>
     </div>
@@ -50,4 +47,4 @@ const { class: className, ...rest } = Astro.props;
             <ButtonAction text="Розпочати проект" />
         </div>
     </div>
-</div>
+</Slide>
