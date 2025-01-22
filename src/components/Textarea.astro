@@ -1,0 +1,43 @@
+---
+export interface Props {
+    label: string;
+    placeholder?: string;
+    name?: string;
+    required?: boolean;
+    rows?: number;
+    maxlength?: number;
+}
+
+const {
+    label,
+    placeholder,
+    name = "message",
+    required = false,
+    rows = 4,
+    maxlength = 1500,
+} = Astro.props;
+---
+
+<div class="flex flex-col gap-2 relative">
+    <label for={name} class="text-captionSmall text-gray-700">
+        {label}
+    </label>
+    <textarea
+        id={name}
+        name={name}
+        rows={rows}
+        required={required}
+        maxlength={maxlength}
+        class="bg-transparent
+            border-b
+            border-gray-300
+            focus:border-gray-600
+            outline-none
+            resize-none
+            py-2
+            transition-colors
+            duration-200
+            placeholder:text-gray-400
+            hover:border-gray-400"
+        placeholder={placeholder}></textarea>
+</div>

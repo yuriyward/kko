@@ -12,20 +12,23 @@ const { class: className, ...rest } = Astro.props;
     <div class="flex flex-col justify-between">
         <div class="flex flex-col gap-2">
             <h3 class="text-heading">Ціль</h3>
-            <p class="text-caption">
-                Генерація нових ідей та рішень для поточних або нових проектів.
-            </p>
-        </div>
-        <div class="flex flex-col gap-2">
-            <h3 class="text-heading">Тривалість</h3>
-            <p class="text-caption">2-3 години.</p>
+            <ul class="text-caption space-y-5 list-disc list-outside ml-6">
+                <li>
+                    Професіонали, які шукають нові можливості для кар'єрного
+                    росту.
+                </li>
+                <li>
+                    Студенти та випускники, які прагнуть визначити свої кар'єрні
+                    цілі.
+                </li>
+                <li>Люди, чиї кар'єри не відповідають їхнім цінностям.</li>
+            </ul>
         </div>
 
         <div class="flex flex-col gap-2">
-            <h3 class="text-heading">Кому підійде</h3>
+            <h3 class="text-heading">Формат</h3>
             <p class="text-caption">
-                Командам, які шукають інноваційні рішення або нові ідеї для
-                розвитку продуктів.
+                3 місяці, 6 зустрічей + одна сесія фоллоу-ап через 4 місяці.
             </p>
         </div>
     </div>
@@ -34,12 +37,20 @@ const { class: className, ...rest } = Astro.props;
         <div class="flex flex-col gap-2">
             <h3 class="text-heading">Що отримаєте</h3>
             <ul class="text-caption space-y-5 list-disc list-outside ml-6">
-                <li>Підготовка зустрічі для визначення теми брейнштрому.</li>
-                <li>Проведення інтенсивної сесії для генерації ідей.</li>
+                <li>Чітке розуміння кар'єрних цілей.</li>
+                <li>Індивідуальний план дій з зовнішнім експертом.</li>
                 <li>
-                    Структурований аналіз ідей і визначення ключових напрямків.
+                    Практичні інструменти для пошуку роботи:
+                    <ul class="mt-5 space-y-5 list-disc list-outside ml-6">
+                        <li>Резюме</li>
+                        <li>Підготовка до співбесіди</li>
+                        <li>Презентація своєї роботи на перформанс рев’ю.</li>
+                        <li>
+                            Підготовка до проговорень своїх прагнень у межах
+                            компанії.
+                        </li>
+                    </ul>
                 </li>
-                <li>Післясесійний звіт з висновками та планом дій.</li>
             </ul>
         </div>
 
