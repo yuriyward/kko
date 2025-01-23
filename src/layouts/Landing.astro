@@ -1,11 +1,13 @@
 ---
-import Header from "../components/Header.astro";
+import Header from "@components/Header.astro";
 import { Image } from "astro:assets";
-import kateHello from "../assets/kate-hello-sqr.webp";
-import Slider from "../components/slider/Slider.astro";
+import kateHello from "@assets/kate-hello-sqr.webp";
+import Slider from "@components/slider/Slider.astro";
+import Tiles from "@components/tiles/Tiles.astro";
 ---
 
 <div class="text-secondary-night">
+    <!-- Header -->
     <Header />
     <!-- Who I am? -->
     <section class="my-20 lg:px-40 px-auto">
@@ -65,8 +67,13 @@ import Slider from "../components/slider/Slider.astro";
     </section>
 
     <!-- Sliders section -->
-    <section class="xl:mx-40 mx-4 py-20 flex flex-col items-center">
+    <section class="xl:mx-40 mx-4 pt-24 pb-20 flex flex-col items-center">
         <h2 class="text-displayMedium pb-1">Пакети</h2>
         <Slider />
+    </section>
+
+    <!-- Tiles section -->
+    <section>
+        <Tiles />
     </section>
 </div>

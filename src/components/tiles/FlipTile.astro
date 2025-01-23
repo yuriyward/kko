@@ -1,0 +1,65 @@
+---
+interface Props {
+    class: string;
+    tileClass?: string;
+}
+
+const { class: className, tileClass, ...rest } = Astro.props;
+---
+
+<div class:list={["flip grid w-full cursor-pointer", tileClass]} {...rest}>
+    <div class:list={["front flex flex-col", className]}>
+        <slot name="front-slot" />
+    </div>
+    <div class:list={["back", className]}>
+        <slot name="back-slot" />
+    </div>
+</div>
+
+<style>
+    .flip {
+        perspective: 1500px;
+        transform-style: preserve-3d;
+        position: relative;
+        display: grid;
+
+        > .front,
+        > .back {
+            grid-area: 1 / 1;
+            transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            backface-visibility: hidden;
+            transform-style: preserve-3d;
+        }
+
+        > .front {
+            transform: rotateY(0deg);
+        }
+
+        > .back {
+            transform: rotateY(-180deg);
+        }
+
+        &:hover {
+            > .front {
+                transform: rotateY(180deg);
+            }
+            > .back {
+                transform: rotateY(0deg);
+            }
+        }
+
+        &.flip-vertical {
+            > .back {
+                transform: rotateX(-180deg);
+            }
+            &:hover {
+                > .front {
+                    transform: rotateX(180deg);
+                }
+                > .back {
+                    transform: rotateX(0deg);
+                }
+            }
+        }
+    }
+</style>
