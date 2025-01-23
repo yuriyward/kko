@@ -5,8 +5,10 @@ import AchievementBadge from "@assets/achievement-badge.svg";
 import DoubleDiamond from "@assets/double-diamond.svg";
 ---
 
-<div class="py-20 grid grid-cols-3">
-    <FlipTile class="bg-primary-lagoon p-10">
+<div
+    class="py-20 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 overflow-hidden"
+>
+    <FlipTile class="bg-primary-lagoon p-10" tileClass="md:row-span-2">
         <div slot="front-slot" class="flex flex-col h-full">
             <h2 class="text-displayMedium text-secondary-ghost">
                 Чому співпраця зі мною?
@@ -28,71 +30,65 @@ import DoubleDiamond from "@assets/double-diamond.svg";
             </div>
         </div>
     </FlipTile>
-    <div class="grid grid-rows-2">
-        <FlipTile class="bg-primary-eggnog p-10">
-            <div slot="front-slot" class="flex flex-col">
-                <h2 class="text-displayMedium text-primary-wood">
-                    Персональний запит
-                </h2>
-            </div>
+    <FlipTile class="bg-primary-eggnog p-10">
+        <div slot="front-slot" class="flex flex-col">
+            <h2 class="text-displayMedium text-primary-wood">
+                Персональний запит
+            </h2>
+        </div>
 
-            <div slot="back-slot" class="flex">
-                <div class="text-primary-wood text-displayXSmall">
-                    Коли ти прагнеш знайти рішення своїх питань, пов'язаних з
-                    реалізацією, кар'єрним ростом та взаємодією у місці, де
-                    більшість з нас проводить значну частину свого життя — на
-                    роботі.
-                </div>
+        <div slot="back-slot" class="flex">
+            <div class="text-primary-wood text-displayXSmall">
+                Коли ти прагнеш знайти рішення своїх питань, пов'язаних з
+                реалізацією, кар'єрним ростом та взаємодією у місці, де
+                більшість з нас проводить значну частину свого життя — на
+                роботі.
             </div>
-        </FlipTile>
-        <FlipTile class="bg-primary-wood p-10">
-            <div slot="front-slot" class="flex flex-col h-full">
-                <h2 class="text-displayMedium text-primary-eggnog">B2B</h2>
-                <div class="flex-1 flex justify-center items-center">
-                    <DoubleDiamond />
-                </div>
+        </div>
+    </FlipTile>
+    <FlipTile class="bg-primary-wood p-10">
+        <div slot="front-slot" class="flex flex-col h-full">
+            <h2 class="text-displayMedium text-primary-eggnog">B2B</h2>
+            <div class="flex-1 flex justify-center items-center">
+                <DoubleDiamond />
             </div>
+        </div>
 
-            <div slot="back-slot" class="flex">
-                <div class="text-primary-eggnog text-displayXSmall">
-                    Рівень організаційних змін шляхом фасилітованої сесії в
-                    результатоорієнтованій та екологічній атмосфері.
-                </div>
+        <div slot="back-slot" class="flex">
+            <div class="text-primary-eggnog text-displayXSmall">
+                Рівень організаційних змін шляхом фасилітованої сесії в
+                результатоорієнтованій та екологічній атмосфері.
             </div>
-        </FlipTile>
-    </div>
-    <div class="grid grid-rows-2">
-        <FlipTile class="bg-primary-cotton p-10">
-            <div slot="front-slot" class="flex flex-col h-full">
-                <h2 class="text-displayMedium text-primary-smoke">
-                    Лідери команд
-                </h2>
-                <div class="flex-1 flex justify-center items-center">
-                    <AchievementBadge />
-                </div>
+        </div>
+    </FlipTile>
+    <FlipTile class="bg-primary-cotton p-10">
+        <div slot="front-slot" class="flex flex-col h-full">
+            <h2 class="text-displayMedium text-primary-smoke">Лідери команд</h2>
+            <div class="flex-1 flex justify-center items-center">
+                <AchievementBadge />
             </div>
+        </div>
 
-            <div slot="back-slot" class="flex">
-                <div class="text-primary-smoke text-displayXSmall">
-                    Підтримка тих самих сильних лідерів. Допомога в розвитку
-                    навичок, важливих для управління командою.
-                </div>
+        <div slot="back-slot" class="flex">
+            <div class="text-primary-smoke text-displayXSmall">
+                Підтримка тих самих сильних лідерів. Допомога в розвитку
+                навичок, важливих для управління командою.
             </div>
-        </FlipTile>
-        <FlipTile class="bg-primary-smoke p-10">
-            <div slot="front-slot" class="flex flex-col">
-                <h2 class="text-displayMedium text-primary-cotton">
-                    HR спеціалісти
-                </h2>
-            </div>
+        </div>
+    </FlipTile>
+    <FlipTile class="bg-primary-smoke p-10">
+        <div slot="front-slot" class="flex flex-col">
+            <h2 class="text-displayMedium text-primary-cotton">
+                HR спеціалісти
+            </h2>
+        </div>
 
-            <div slot="back-slot" class="flex">
-                <div class="text-primary-cotton text-displayXSmall">
-                    Покращення employee engagement за допомогою інтерактивних
-                    інструментів. Підвищення якості своєї роботи за допомогою
-                    фасилітаційних методик.
-                </div>
+        <div slot="back-slot" class="flex">
+            <div class="text-primary-cotton text-displayXSmall">
+                Покращення employee engagement за допомогою інтерактивних
+                інструментів. Підвищення якості своєї роботи за допомогою
+                фасилітаційних методик.
             </div>
-        </FlipTile>
-    </div>
+        </div>
+    </FlipTile>
 </div>
