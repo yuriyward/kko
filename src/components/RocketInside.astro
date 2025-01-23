@@ -11,8 +11,14 @@ const tasks = [
 ---
 
 <div class="grid grid-cols-1 md:grid-cols-2 gap-10 text-secondary-night">
-    <div>
-        <h1 class="text-displayMedium pb-20">
+    <!-- Mobile-only heading -->
+    <h1 class="text-displayMedium pb-20 md:hidden order-first">
+        Вірю, що в кожному з нас є <span>rocket</span> inside!
+    </h1>
+
+    <div class="order-last md:order-none">
+        <!-- Desktop/tablet heading -->
+        <h1 class="text-displayMedium pb-20 hidden md:block">
             Вірю, що в кожному з нас є <span>rocket</span> inside!
         </h1>
         <div class="text-caption pb-10">Я...</div>
@@ -20,7 +26,9 @@ const tasks = [
             {tasks.map((task) => <li>{task}</li>)}
         </ul>
     </div>
-    <div class="flex flex-col items-center justify-center h-full">
+    <div
+        class="flex flex-col items-center justify-center h-full order-2 md:order-none"
+    >
         <div class="h-full flex flex-col gap-6">
             <CartoonKate class="h-full" />
             <div class="flex justify-center">
