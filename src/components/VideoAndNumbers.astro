@@ -1,10 +1,30 @@
+---
+import { Vimeo, YouTube } from "astro-embed";
+---
+
 <div
     class="flex xl:gap-36 md:gap-20 w-full md:flex-row flex-col xl:items-stretch items-center"
 >
-    <div
-        class="xl:w-[710px] xl:h-[870px] md:w-[360px] md:h-[630px] h-[530px] w-full bg-slate-100 p-6 rounded-3xl"
+    <!-- <div
+        class="xl:w-[710px] xl:h-[870px] md:w-[360px] md:h-[630px] h-[530px] w-full bg-slate-100 rounded-3xl overflow-hidden"
     >
-        Video
+        <YouTube
+            class="w-full h-full object-cover"
+            poster="https://images-assets.nasa.gov/image/0302063/0302063~medium.jpg"
+            id="https://youtu.be/ilfsct5LCEw"
+            params="color=6C8FE6&loop=1&rel=0&showinfo=0&controls=0"
+        />
+    </div> -->
+
+    <div
+        class="xl:w-[710px] xl:h-[870px] md:w-[360px] md:h-[630px] h-[530px] w-full bg-slate-100 rounded-3xl overflow-hidden"
+    >
+        <Vimeo
+            class="w-full h-full object-cover"
+            poster="https://miro.medium.com/v2/resize:fit:2400/1*nmbUYpjxbz59SKu6xDYPaw.jpeg"
+            id="1050379612"
+            params="color=6C8FE6&byline=0&portrait=0&loop=1&title=0"
+        />
     </div>
     <div
         class="flex flex-col justify-between text-secondary-night gap-10 w-full"
