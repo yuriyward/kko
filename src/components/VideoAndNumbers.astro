@@ -16,15 +16,18 @@ import { Vimeo, YouTube } from "astro-embed";
         />
     </div> -->
 
-    <div
-        class="xl:w-[710px] xl:h-[870px] md:w-[360px] md:h-[630px] h-[530px] w-full bg-slate-100 rounded-3xl overflow-hidden"
-    >
-        <Vimeo
-            class="w-full h-full object-cover"
-            poster="https://miro.medium.com/v2/resize:fit:2400/1*nmbUYpjxbz59SKu6xDYPaw.jpeg"
-            id="1050379612"
-            params="color=6C8FE6&byline=0&portrait=0&loop=1&title=0"
-        />
+    <div class="md:w-[710px] w-full overflow-hidden">
+        <!-- 9:16 Aspect Ratio (16/9 * 100) = 177.78% -->
+        <div class="relative w-full pt-[177.78%]">
+            <div class="absolute inset-0">
+                <Vimeo
+                    class="w-full h-full object-cover rounded-3xl"
+                    poster="https://miro.medium.com/v2/resize:fit:2400/1*nmbUYpjxbz59SKu6xDYPaw.jpeg"
+                    id="1050379612"
+                    params="color=6C8FE6&byline=0&portrait=0&loop=1&title=0"
+                />
+            </div>
+        </div>
     </div>
     <div
         class="flex flex-col justify-between text-secondary-night gap-10 w-full"
