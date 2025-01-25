@@ -1,11 +1,11 @@
 ---
-import Header from "@components/Header.astro";
+import Header from "@components/landing/Header.astro";
 import { Image } from "astro:assets";
 import kateHello from "@assets/kate-hello-sqr.webp";
-import Slider from "@components/slider/Slider.astro";
-import Tiles from "@components/tiles/Tiles.astro";
-import RocketInside from "@components/RocketInside.astro";
-import VideoAndNumbers from "@components/VideoAndNumbers.astro";
+import Slides from "@components/landing/slides/Slides.astro";
+import Tiles from "@components/landing/Tiles.astro";
+import RocketInside from "@components/landing/RocketInside.astro";
+import VideoAndNumbers from "@components/landing/VideoAndNumbers.astro";
 ---
 
 <div class="text-secondary-night">
@@ -68,10 +68,10 @@ import VideoAndNumbers from "@components/VideoAndNumbers.astro";
         </div>
     </section>
 
-    <!-- Sliders section -->
+    <!-- Slides section -->
     <section class="xl:mx-40 mx-4 pt-24 pb-20 flex flex-col items-center">
         <h2 class="text-displayMedium pb-1">Пакети</h2>
-        <Slider />
+        <Slides />
     </section>
 
     <!-- Tiles section -->
