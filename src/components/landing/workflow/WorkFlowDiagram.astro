@@ -1,0 +1,50 @@
+---
+import WorkFlowDiagramStep, { type Step } from "./WorkFlowDiagramStep.astro";
+
+const workSteps: Step[] = [
+    {
+        id: "01",
+        title: "Занурення в проблематику",
+        description: "Детальна діагностика для розуміння викликів і потреб.",
+        position: { x: 50, y: 30 }, // Adjusted Y position
+    },
+    {
+        id: "02",
+        title: "Пошук рішень",
+        description:
+            "За потреби залучаємо експертів, які допоможуть посилити вирішення вашого запиту. Визначаємо цілі та пріоритети.",
+        position: { x: 50, y: 200 }, // Adjusted Y position
+    },
+    {
+        id: "03",
+        title: "Організація процесу / Навчання команди",
+        description:
+            "Формуємо структуру роботи та підвищуємо компетенції учасників.",
+        position: { x: 450, y: 30 }, // Adjusted X and Y position
+    },
+    {
+        id: "04",
+        title: "Розробка рішень",
+        description:
+            "Розробка рішень і підходів, які об’єднують команду та мотивують до спільних дій. За індивідуальним запитом підтримуємо реалізацію змін.",
+        position: { x: 450, y: 200 }, // Adjusted X and Y position
+    },
+];
+---
+
+<div class="w-full">
+    <div class="flex flex-col gap-32 2xl:ml-[10%]">
+        <div class="flex flex-col md:flex-row md:gap-[15%] gap-32">
+            <WorkFlowDiagramStep step={workSteps[0]} />
+            <WorkFlowDiagramStep step={workSteps[1]} />
+        </div>
+        <div class="flex flex-col md:flex-row md:gap-[25%] gap-32 md:ml-[15%]">
+            <WorkFlowDiagramStep step={workSteps[2]} />
+            <WorkFlowDiagramStep step={workSteps[3]} />
+        </div>
+    </div>
+</div>
+
+<script>
+    import rough from "roughjs";
+</script>
