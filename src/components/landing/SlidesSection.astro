@@ -1,37 +1,40 @@
 ---
-import FirstSlide from "./slides/FirstSlide.astro";
-import SecondSlide from "./slides/SecondSlide.astro";
-import ThirdSlide from "./slides/ThirdSlide.astro";
-import FourthSlide from "./slides/FourthSlide.astro";
-import FifthSlide from "./slides/FifthSlide.astro";
-import SixthSlide from "./slides/SixthSlide.astro";
+import FirstSlide from "@components/landing/slides/FirstSlide.astro";
+import SecondSlide from "@components/landing/slides/SecondSlide.astro";
+import ThirdSlide from "@components/landing/slides/ThirdSlide.astro";
+import FourthSlide from "@components/landing/slides/FourthSlide.astro";
+import FifthSlide from "@components/landing/slides/FifthSlide.astro";
+import SixthSlide from "@components/landing/slides/SixthSlide.astro";
 ---
 
-<div class="w-full max-w-7xl relative overflow-hidden pt-20 pb-64">
-    <!-- Controls -->
-    <div class="swiper-button-prev"></div>
-    <div
-        class="swiper-pagination p-2 rounded-full bg-primary-cotton !absolute !left-0 !right-auto !top-[50%]"
-    >
-    </div>
-    <div class="swiper-button-next"></div>
-
-    <!-- Sliders -->
-    <div class="swiper-body ml-9">
+<section class="xl:mx-40 mx-4 pt-24 pb-20 flex flex-col items-center">
+    <h2 class="text-displayMedium pb-1">Пакети</h2>
+    <div class="w-full max-w-7xl relative overflow-hidden pt-20 pb-64">
+        <!-- Controls -->
+        <div class="swiper-button-prev"></div>
         <div
-            class="swiper w-full lg:max-h-[630px] md:h-[760px] sm-h-[800px] max-h-[1200px] h-fit"
+            class="swiper-pagination p-2 rounded-full bg-primary-cotton !absolute !left-0 !right-auto !top-[50%]"
         >
-            <div class="swiper-wrapper">
-                <div class="swiper-slide"><FirstSlide /></div>
-                <div class="swiper-slide"><SecondSlide /></div>
-                <div class="swiper-slide"><ThirdSlide /></div>
-                <div class="swiper-slide"><FourthSlide /></div>
-                <div class="swiper-slide"><FifthSlide /></div>
-                <div class="swiper-slide"><SixthSlide /></div>
+        </div>
+        <div class="swiper-button-next"></div>
+
+        <!-- Sliders -->
+        <div class="swiper-body ml-9">
+            <div
+                class="swiper w-full lg:max-h-[630px] md:h-[760px] sm-h-[800px] max-h-[1200px] h-fit"
+            >
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><FirstSlide /></div>
+                    <div class="swiper-slide"><SecondSlide /></div>
+                    <div class="swiper-slide"><ThirdSlide /></div>
+                    <div class="swiper-slide"><FourthSlide /></div>
+                    <div class="swiper-slide"><FifthSlide /></div>
+                    <div class="swiper-slide"><SixthSlide /></div>
+                </div>
             </div>
         </div>
     </div>
-</div>
+</section>
 
 <style>
     :root {
