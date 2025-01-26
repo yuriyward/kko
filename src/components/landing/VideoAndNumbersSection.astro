@@ -1,0 +1,60 @@
+---
+import { Vimeo, YouTube } from "astro-embed";
+---
+
+<section class="xl:mx-40 mx-4 pt-12 md:pt-24 pb-20">
+    <div
+        class="flex xl:gap-36 md:gap-20 w-full md:flex-row flex-col xl:items-stretch items-center"
+    >
+        <!-- <div
+        class="xl:w-[710px] xl:h-[870px] md:w-[360px] md:h-[630px] h-[530px] w-full bg-slate-100 rounded-3xl overflow-hidden"
+    >
+        <YouTube
+            class="w-full h-full object-cover"
+            poster="https://images-assets.nasa.gov/image/0302063/0302063~medium.jpg"
+            id="https://youtu.be/ilfsct5LCEw"
+            params="color=6C8FE6&loop=1&rel=0&showinfo=0&controls=0"
+        />
+    </div> -->
+
+        <div class="md:w-[710px] w-full overflow-hidden">
+            <!-- 9:16 Aspect Ratio (16/9 * 100) = 177.78% -->
+            <div class="relative w-full pt-[177.78%]">
+                <div class="absolute inset-0">
+                    <Vimeo
+                        class="w-full h-full object-cover rounded-3xl"
+                        poster="https://miro.medium.com/v2/resize:fit:2400/1*nmbUYpjxbz59SKu6xDYPaw.jpeg"
+                        id="1050379612"
+                        params="color=6C8FE6&byline=0&portrait=0&loop=1&title=0"
+                    />
+                </div>
+            </div>
+        </div>
+        <div
+            class="flex flex-col justify-between text-secondary-night gap-10 w-full"
+        >
+            <div class="flex flex-col gap-8 pt-10">
+                <div class="text-displayLarge text-primary-eggnog">4 роки</div>
+                <div class="text-caption">
+                    досвіду в HR в IT, робота з full employee cycle.
+                </div>
+            </div>
+
+            <div class="flex flex-col gap-8">
+                <div class="text-displayLarge text-primary-lagoon">
+                    40+ івентів
+                </div>
+                <div class="text-caption">
+                    Організація 40+ професійних і тімбілдингових івентів.
+                </div>
+            </div>
+
+            <div class="flex flex-col gap-8 pb-10">
+                <div class="text-displayLarge text-primary-wood">32 країни</div>
+                <div class="text-caption">
+                    Запуск віддаленого онбордингу для 32 країн.
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

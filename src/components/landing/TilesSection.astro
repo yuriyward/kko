@@ -1,0 +1,101 @@
+---
+import FlipTile from "@components/tiles/FlipTile.astro";
+import ShiningEffect from "@assets/shining-effect.svg";
+import AchievementBadge from "@assets/achievement-badge.svg";
+import DoubleDiamond from "@assets/double-diamond.svg";
+---
+
+<section>
+    <div
+        class="py-20 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 overflow-hidden"
+    >
+        <FlipTile
+            class="bg-primary-lagoon md:p-10 p-4"
+            tileClass="md:row-span-2"
+        >
+            <div slot="front-slot" class="flex flex-col h-full">
+                <h2 class="text-displayMedium text-secondary-ghost">
+                    Чому співпраця зі мною?
+                </h2>
+                <div class="flex-1 flex justify-center items-center">
+                    <ShiningEffect />
+                </div>
+            </div>
+
+            <div slot="back-slot" class="flex flex-col gap-10">
+                <h2 class="text-displaySmall text-secondary-ghost">
+                    Я допомагаю побачити, структурувати та спрямувати ідеї на
+                    результат.
+                </h2>
+                <div class="text-secondary-ghost text-displayXSmall">
+                    І цей підхід я застосовую в кожному з варіантів співпраці,
+                    ким би ви не були: чи то клієнт з запитом з кар'єрним
+                    питанням, лідер, який хоче рости, чи керівник у компанії.
+                </div>
+            </div>
+        </FlipTile>
+        <FlipTile class="bg-primary-eggnog md:p-10 p-4">
+            <div slot="front-slot" class="flex flex-col">
+                <h2 class="text-displayMedium text-primary-wood">
+                    Персональний запит
+                </h2>
+            </div>
+
+            <div slot="back-slot" class="flex">
+                <div class="text-primary-wood text-displayXSmall">
+                    Коли ти прагнеш знайти рішення своїх питань, пов'язаних з
+                    реалізацією, кар'єрним ростом та взаємодією у місці, де
+                    більшість з нас проводить значну частину свого життя — на
+                    роботі.
+                </div>
+            </div>
+        </FlipTile>
+        <FlipTile class="bg-primary-wood md:p-10 p-4">
+            <div slot="front-slot" class="flex flex-col h-full">
+                <h2 class="text-displayMedium text-primary-eggnog">B2B</h2>
+                <div class="flex-1 flex justify-center items-center">
+                    <DoubleDiamond />
+                </div>
+            </div>
+
+            <div slot="back-slot" class="flex">
+                <div class="text-primary-eggnog text-displayXSmall">
+                    Рівень організаційних змін шляхом фасилітованої сесії в
+                    результатоорієнтованій та екологічній атмосфері.
+                </div>
+            </div>
+        </FlipTile>
+        <FlipTile class="bg-primary-cotton md:p-10 p-4">
+            <div slot="front-slot" class="flex flex-col h-full">
+                <h2 class="text-displayMedium text-primary-smoke">
+                    Лідери команд
+                </h2>
+                <div class="flex-1 flex justify-center items-center">
+                    <AchievementBadge />
+                </div>
+            </div>
+
+            <div slot="back-slot" class="flex">
+                <div class="text-primary-smoke text-displayXSmall">
+                    Підтримка тих самих сильних лідерів. Допомога в розвитку
+                    навичок, важливих для управління командою.
+                </div>
+            </div>
+        </FlipTile>
+        <FlipTile class="bg-primary-smoke md:p-10 p-4">
+            <div slot="front-slot" class="flex flex-col">
+                <h2 class="text-displayMedium text-primary-cotton">
+                    HR спеціалісти
+                </h2>
+            </div>
+
+            <div slot="back-slot" class="flex">
+                <div class="text-primary-cotton text-displayXSmall">
+                    Покращення employee engagement за допомогою інтерактивних
+                    інструментів. Підвищення якості своєї роботи за допомогою
+                    фасилітаційних методик.
+                </div>
+            </div>
+        </FlipTile>
+    </div>
+</section>
