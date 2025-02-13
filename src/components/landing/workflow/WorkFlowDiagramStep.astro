@@ -9,12 +9,13 @@ export interface Step {
 interface Props {
     step: Step;
     class?: string;
+    id?: string;
 }
 
-const { step, class: additionalClass } = Astro.props;
+const { step, id, class: additionalClass } = Astro.props;
 ---
 
-<div id={step.id} class:list={["flex gap-4", additionalClass]}>
+<div id={step.id} class:list={["flex gap-4", additionalClass]} id={id}>
     <slot name="icon-slot" />
     <div class="flex flex-col gap-2">
         <div class="flex gap-2">
