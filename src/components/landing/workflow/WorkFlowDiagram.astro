@@ -32,40 +32,145 @@ const workSteps: Step[] = [
 ];
 ---
 
-<div class="w-full relative">
+<div id="diagram-container" class="w-full relative">
     <div class="flex flex-col gap-32 2xl:ml-[10%]">
         <div class="flex flex-col md:flex-row md:gap-[15%] gap-32">
-            <WorkFlowDiagramStep
-                step={workSteps[0]}
-                id="step-01"
-                class="step-01"
-            >
+            <WorkFlowDiagramStep step={workSteps[0]}>
                 <QuestionIcon slot="icon-slot" />
             </WorkFlowDiagramStep>
 
-            <WorkFlowDiagramStep
-                step={workSteps[2]}
-                id="step-03"
-                class="step-03"
-            >
+            <WorkFlowDiagramStep step={workSteps[2]}>
                 <CheckboxIcon slot="icon-slot" />
             </WorkFlowDiagramStep>
         </div>
         <div class="flex flex-col md:flex-row md:gap-[25%] gap-32 md:ml-[15%]">
-            <WorkFlowDiagramStep
-                step={workSteps[1]}
-                id="step-02"
-                class="step-02"
-            >
+            <WorkFlowDiagramStep step={workSteps[1]}>
                 <IdeaIcon slot="icon-slot" />
             </WorkFlowDiagramStep>
-            <WorkFlowDiagramStep
-                step={workSteps[3]}
-                id="step-04"
-                class="step-04"
-            >
+            <WorkFlowDiagramStep step={workSteps[3]}>
                 <ChatIcon slot="icon-slot" />
             </WorkFlowDiagramStep>
         </div>
     </div>
+    {/* SVG will be populated dynamically */}
+    <svg id="connecting-lines" class="absolute inset-0 pointer-events-none"
+    ></svg>
 </div>
+
+<script>
+    // New connections array combining step ids and padding.
+    const connections = [
+        { from: "01", to: "02", padding: -15, curveFactor: 0.5 },
+        {
+            from: "02",
+            to: "03",
+            padding: -24,
+            curveFactor: 0.7,
+            startOffsetX: -100,
+        },
+        { from: "03", to: "04", padding: -10, curveFactor: 0.4 },
+    ];
+
+    // Dynamically update connecting lines between steps
+    function updateLines() {
+        const container = document.getElementById("diagram-container");
+        const svg = document.getElementById("connecting-lines");
+        if (!container || !svg) return;
+        const contRect = container.getBoundingClientRect();
+        svg.setAttribute("width", String(contRect.width));
+        svg.setAttribute("height", String(contRect.height));
+        svg.innerHTML = ""; // Clear earlier lines
+
+        // Calculate the intersection point on the element's border with extra padding.
+        function getEdgePoint(
+            rect: DOMRect,
+            center: { x: number; y: number },
+            targetCenter: { x: number; y: number },
+            extraPadding: number
+        ): { x: number; y: number } {
+            const dx = targetCenter.x - center.x;
+            const dy = targetCenter.y - center.y;
+            const halfWidth = rect.width / 2;
+            const halfHeight = rect.height / 2;
+            const scaleX = dx !== 0 ? halfWidth / Math.abs(dx) : Infinity;
+            const scaleY = dy !== 0 ? halfHeight / Math.abs(dy) : Infinity;
+            const scale = Math.min(scaleX, scaleY);
+            let edge = {
+                x: center.x + dx * scale,
+                y: center.y + dy * scale,
+            };
+            const distance = Math.sqrt(dx * dx + dy * dy);
+            if (distance > 0) {
+                edge.x -= (dx / distance) * extraPadding;
+                edge.y -= (dy / distance) * extraPadding;
+            }
+            return edge;
+        }
+
+        // Create a cubic Bezier path using a custom curve factor.
+        function createPath(
+            start: { x: number; y: number },
+            end: { x: number; y: number },
+            curveFactor: number
+        ): SVGPathElement {
+            const cp1 = {
+                x: start.x,
+                y: start.y + (end.y - start.y) * curveFactor,
+            };
+            const cp2 = {
+                x: end.x,
+                y: end.y - (end.y - start.y) * curveFactor,
+            };
+            const d = `M ${start.x} ${start.y} C ${cp1.x} ${cp1.y}, ${cp2.x} ${cp2.y}, ${end.x} ${end.y}`;
+            const path = document.createElementNS(
+                "http://www.w3.org/2000/svg",
+                "path"
+            );
+            path.setAttribute("d", d);
+            path.setAttribute("stroke", "black");
+            path.setAttribute("stroke-width", "1");
+            path.setAttribute("fill", "none");
+            return path;
+        }
+
+        // Loop through each connection object and draw the line.
+        connections.forEach((connection) => {
+            const elFrom = document.getElementById(connection.from);
+            const elTo = document.getElementById(connection.to);
+            if (!elFrom || !elTo) return;
+            const rectFrom = elFrom.getBoundingClientRect();
+            const rectTo = elTo.getBoundingClientRect();
+            const centerFrom = {
+                x: rectFrom.left - contRect.left + rectFrom.width / 2,
+                y: rectFrom.top - contRect.top + rectFrom.height / 2,
+            };
+            const centerTo = {
+                x: rectTo.left - contRect.left + rectTo.width / 2,
+                y: rectTo.top - contRect.top + rectTo.height / 2,
+            };
+            let start = getEdgePoint(
+                rectFrom,
+                centerFrom,
+                centerTo,
+                connection.padding
+            );
+            // Apply custom X offset for the start position if defined
+            if (connection.startOffsetX) {
+                start.x += connection.startOffsetX;
+            }
+            let end = getEdgePoint(
+                rectTo,
+                centerTo,
+                centerFrom,
+                connection.padding
+            );
+            svg.appendChild(
+                createPath(start, end, connection.curveFactor || 0.6)
+            );
+        });
+    }
+
+    window.addEventListener("resize", updateLines);
+    window.addEventListener("load", updateLines);
+    setTimeout(updateLines, 500);
+</script>

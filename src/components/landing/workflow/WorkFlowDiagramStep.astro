@@ -12,10 +12,10 @@ interface Props {
     id?: string;
 }
 
-const { step, id, class: additionalClass } = Astro.props;
+const { step, class: additionalClass } = Astro.props;
 ---
 
-<div id={step.id} class:list={["flex gap-4", additionalClass]} id={id}>
+<div id={step.id} class:list={["flex gap-4", additionalClass]}>
     <slot name="icon-slot" />
     <div class="flex flex-col gap-2">
         <div class="flex gap-2">
