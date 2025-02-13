@@ -32,24 +32,46 @@ const workSteps: Step[] = [
 ];
 ---
 
-<div id="diagram-container" class="w-full relative">
-    <div class="flex flex-col gap-32 2xl:ml-[10%]">
-        <div class="flex flex-col md:flex-row md:gap-[15%] gap-32">
-            <WorkFlowDiagramStep step={workSteps[0]}>
-                <QuestionIcon slot="icon-slot" />
-            </WorkFlowDiagramStep>
-
-            <WorkFlowDiagramStep step={workSteps[2]}>
-                <CheckboxIcon slot="icon-slot" />
-            </WorkFlowDiagramStep>
+<div id="diagram-container" class="w-full relative px-4 md:px-0">
+    <div class="flex flex-col space-y-16 md:space-y-20 2xl:ml-[10%]">
+        <!-- First row -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
+            <div class="md:pr-8">
+                <WorkFlowDiagramStep step={workSteps[0]} class="w-fit">
+                    <QuestionIcon slot="icon-slot" />
+                </WorkFlowDiagramStep>
+            </div>
+            <div class="hidden md:block"></div>
         </div>
-        <div class="flex flex-col md:flex-row md:gap-[25%] gap-32 md:ml-[15%]">
-            <WorkFlowDiagramStep step={workSteps[1]}>
-                <IdeaIcon slot="icon-slot" />
-            </WorkFlowDiagramStep>
-            <WorkFlowDiagramStep step={workSteps[3]}>
-                <ChatIcon slot="icon-slot" />
-            </WorkFlowDiagramStep>
+
+        <!-- Second row -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
+            <div class="hidden md:block"></div>
+            <div class="md:pl-8">
+                <WorkFlowDiagramStep step={workSteps[1]} class="w-fit">
+                    <IdeaIcon slot="icon-slot" />
+                </WorkFlowDiagramStep>
+            </div>
+        </div>
+
+        <!-- Third row -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
+            <div class="md:pr-8">
+                <WorkFlowDiagramStep step={workSteps[2]}>
+                    <CheckboxIcon slot="icon-slot" />
+                </WorkFlowDiagramStep>
+            </div>
+            <div class="hidden md:block"></div>
+        </div>
+
+        <!-- Fourth row -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16">
+            <div class="hidden md:block"></div>
+            <div class="md:pl-8">
+                <WorkFlowDiagramStep step={workSteps[3]}>
+                    <ChatIcon slot="icon-slot" />
+                </WorkFlowDiagramStep>
+            </div>
         </div>
     </div>
     <svg id="connecting-lines" class="absolute inset-0 pointer-events-none"
@@ -62,11 +84,38 @@ const workSteps: Step[] = [
         y: number;
     }
 
+    enum EdgePosition {
+        TOP = "top",
+        RIGHT = "right",
+        BOTTOM = "bottom",
+        LEFT = "left",
+    }
+
+    enum LineDirection {
+        UP = "up",
+        DOWN = "down",
+        LEFT = "left",
+        RIGHT = "right",
+    }
+
+    enum BendDirection {
+        UP = "up",
+        DOWN = "down",
+        LEFT = "left",
+        RIGHT = "right",
+    }
+
     interface Connection {
         from: string;
         to: string;
-        padding: number;
-        curveFactor: number;
+        startPadding: number;
+        endPadding: number;
+        bendDirection: BendDirection;
+        bendStrength: number; // Controls how much the curve bends (0-1)
+        startEdge: EdgePosition;
+        endEdge: EdgePosition;
+        startDirection: LineDirection;
+        endDirection: LineDirection;
         startOffsetX?: number;
         endOffsetX?: number;
     }
@@ -130,45 +179,116 @@ const workSteps: Step[] = [
 
         private getEdgePoint(
             rect: DOMRect,
-            center: Point,
-            targetCenter: Point,
-            extraPadding: number
+            edge: EdgePosition,
+            padding: number,
+            offsetX: number = 0
         ): Point {
-            const dx = targetCenter.x - center.x;
-            const dy = targetCenter.y - center.y;
-            const halfWidth = rect.width / 2;
-            const halfHeight = rect.height / 2;
-            const scaleX = dx !== 0 ? halfWidth / Math.abs(dx) : Infinity;
-            const scaleY = dy !== 0 ? halfHeight / Math.abs(dy) : Infinity;
-            const scale = Math.min(scaleX, scaleY);
+            const point: Point = { x: 0, y: 0 };
 
-            const edge = {
-                x: center.x + dx * scale,
-                y: center.y + dy * scale,
-            };
-
-            const distance = Math.sqrt(dx * dx + dy * dy);
-            if (distance > 0) {
-                edge.x -= (dx / distance) * extraPadding;
-                edge.y -= (dy / distance) * extraPadding;
+            switch (edge) {
+                case EdgePosition.TOP:
+                    point.x = rect.left + rect.width / 2 + offsetX;
+                    point.y = rect.top + padding;
+                    break;
+                case EdgePosition.RIGHT:
+                    point.x = rect.right - padding;
+                    point.y = rect.top + rect.height / 2;
+                    break;
+                case EdgePosition.BOTTOM:
+                    point.x = rect.left + rect.width / 2 + offsetX;
+                    point.y = rect.bottom - padding;
+                    break;
+                case EdgePosition.LEFT:
+                    point.x = rect.left + padding;
+                    point.y = rect.top + rect.height / 2;
+                    break;
             }
 
-            return edge;
+            return point;
+        }
+
+        private adjustControlPoint(
+            point: Point,
+            direction: LineDirection,
+            distance: number
+        ): Point {
+            const adjusted = { x: point.x, y: point.y };
+            switch (direction) {
+                case LineDirection.UP:
+                    adjusted.y -= distance;
+                    break;
+                case LineDirection.DOWN:
+                    adjusted.y += distance;
+                    break;
+                case LineDirection.LEFT:
+                    adjusted.x -= distance;
+                    break;
+                case LineDirection.RIGHT:
+                    adjusted.x += distance;
+                    break;
+            }
+            return adjusted;
         }
 
         private createPath(
             start: Point,
             end: Point,
-            curveFactor: number
+            bendDirection: BendDirection,
+            bendStrength: number,
+            startDirection: LineDirection,
+            endDirection: LineDirection
         ): SVGPathElement {
-            const cp1 = {
-                x: start.x,
-                y: start.y + (end.y - start.y) * curveFactor,
+            const controlDistance = 100; // Base distance for control points
+            const midPoint = {
+                x: (start.x + end.x) / 2,
+                y: (start.y + end.y) / 2,
             };
-            const cp2 = {
-                x: end.x,
-                y: end.y - (end.y - start.y) * curveFactor,
+
+            // Calculate bend offset based on direction and strength
+            const bendOffset = {
+                x: (end.x - start.x) * bendStrength,
+                y: (end.y - start.y) * bendStrength,
             };
+
+            const cp1 = { ...start };
+            const cp2 = { ...end };
+
+            // Apply bend direction
+            switch (bendDirection) {
+                case BendDirection.UP:
+                    cp1.y = midPoint.y - Math.abs(bendOffset.y);
+                    cp2.y = midPoint.y - Math.abs(bendOffset.y);
+                    break;
+                case BendDirection.DOWN:
+                    cp1.y = midPoint.y + Math.abs(bendOffset.y);
+                    cp2.y = midPoint.y + Math.abs(bendOffset.y);
+                    break;
+                case BendDirection.LEFT:
+                    cp1.x = midPoint.x - Math.abs(bendOffset.x);
+                    cp2.x = midPoint.x - Math.abs(bendOffset.x);
+                    break;
+                case BendDirection.RIGHT:
+                    cp1.x = midPoint.x + Math.abs(bendOffset.x);
+                    cp2.x = midPoint.x + Math.abs(bendOffset.x);
+                    break;
+            }
+
+            // Adjust control points based on start/end directions
+            const startAdjustment = this.adjustControlPoint(
+                start,
+                startDirection,
+                controlDistance
+            );
+            const endAdjustment = this.adjustControlPoint(
+                end,
+                endDirection,
+                controlDistance
+            );
+
+            cp1.x += (startAdjustment.x - start.x) * 0.5;
+            cp1.y += (startAdjustment.y - start.y) * 0.5;
+            cp2.x += (endAdjustment.x - end.x) * 0.5;
+            cp2.y += (endAdjustment.y - end.y) * 0.5;
 
             const path = document.createElementNS(
                 "http://www.w3.org/2000/svg",
@@ -200,54 +320,83 @@ const workSteps: Step[] = [
                 const rectFrom = elFrom.getBoundingClientRect();
                 const rectTo = elTo.getBoundingClientRect();
 
-                const centerFrom: Point = {
-                    x: rectFrom.left - contRect.left + rectFrom.width / 2,
-                    y: rectFrom.top - contRect.top + rectFrom.height / 2,
-                };
-                const centerTo: Point = {
-                    x: rectTo.left - contRect.left + rectTo.width / 2,
-                    y: rectTo.top - contRect.top + rectTo.height / 2,
-                };
-
-                let start = this.getEdgePoint(
-                    rectFrom,
-                    centerFrom,
-                    centerTo,
-                    connection.padding
+                // Adjust points based on container position
+                const start = this.getEdgePoint(
+                    new DOMRect(
+                        rectFrom.left - contRect.left,
+                        rectFrom.top - contRect.top,
+                        rectFrom.width,
+                        rectFrom.height
+                    ),
+                    connection.startEdge,
+                    connection.startPadding,
+                    connection.startOffsetX
                 );
-                if (connection.startOffsetX) {
-                    start.x += connection.startOffsetX;
-                }
 
-                let end = this.getEdgePoint(
-                    rectTo,
-                    centerTo,
-                    centerFrom,
-                    connection.padding
+                const end = this.getEdgePoint(
+                    new DOMRect(
+                        rectTo.left - contRect.left,
+                        rectTo.top - contRect.top,
+                        rectTo.width,
+                        rectTo.height
+                    ),
+                    connection.endEdge,
+                    connection.endPadding,
+                    connection.endOffsetX
                 );
-                if (connection.endOffsetX) {
-                    end.x += connection.endOffsetX;
-                }
 
                 this.svg.appendChild(
-                    this.createPath(start, end, connection.curveFactor)
+                    this.createPath(
+                        start,
+                        end,
+                        connection.bendDirection,
+                        connection.bendStrength,
+                        connection.startDirection,
+                        connection.endDirection
+                    )
                 );
             });
         }
     }
 
-    // Configuration
+    // Configuration with separate padding values
     const connections: Connection[] = [
-        { from: "01", to: "02", padding: -15, curveFactor: 0.5 },
+        {
+            from: "01",
+            to: "02",
+            startPadding: -50,
+            endPadding: -40,
+            bendDirection: BendDirection.UP,
+            bendStrength: 0.8,
+            startEdge: EdgePosition.RIGHT,
+            endEdge: EdgePosition.TOP,
+            startDirection: LineDirection.RIGHT,
+            endDirection: LineDirection.LEFT,
+        },
         {
             from: "02",
             to: "03",
-            padding: -24,
-            curveFactor: 0.6,
-            startOffsetX: -100,
-            endOffsetX: -100,
+            startPadding: -10,
+            endPadding: -20,
+            bendDirection: BendDirection.DOWN,
+            bendStrength: 0.5,
+            startEdge: EdgePosition.LEFT,
+            endEdge: EdgePosition.TOP,
+            startDirection: LineDirection.DOWN,
+            endDirection: LineDirection.UP,
         },
-        { from: "03", to: "04", padding: -10, curveFactor: 0.4 },
+        {
+            from: "03",
+            to: "04",
+            startPadding: 0,
+            endPadding: -15,
+            bendDirection: BendDirection.RIGHT,
+            bendStrength: 0.1,
+            startEdge: EdgePosition.RIGHT,
+            endEdge: EdgePosition.LEFT,
+            startDirection: LineDirection.RIGHT,
+            endDirection: LineDirection.LEFT,
+        },
     ];
 
     // Initialize the diagram with error handling
