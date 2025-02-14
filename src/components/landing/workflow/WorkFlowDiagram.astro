@@ -86,9 +86,17 @@ const workSteps: Step[] = [
 
     enum EdgePosition {
         TOP = "top",
+        TOP_LEFT = "top_left",
+        TOP_RIGHT = "top_right",
         RIGHT = "right",
+        RIGHT_TOP = "right_top",
+        RIGHT_BOTTOM = "right_bottom",
         BOTTOM = "bottom",
+        BOTTOM_LEFT = "bottom_left",
+        BOTTOM_RIGHT = "bottom_right",
         LEFT = "left",
+        LEFT_TOP = "left_top",
+        LEFT_BOTTOM = "left_bottom",
     }
 
     enum LineDirection {
@@ -190,17 +198,49 @@ const workSteps: Step[] = [
                     point.x = rect.left + rect.width / 2 + offsetX;
                     point.y = rect.top + padding;
                     break;
+                case EdgePosition.TOP_LEFT:
+                    point.x = rect.left + rect.width * 0.25 + offsetX;
+                    point.y = rect.top + padding;
+                    break;
+                case EdgePosition.TOP_RIGHT:
+                    point.x = rect.left + rect.width * 0.75 + offsetX;
+                    point.y = rect.top + padding;
+                    break;
                 case EdgePosition.RIGHT:
                     point.x = rect.right - padding;
                     point.y = rect.top + rect.height / 2;
+                    break;
+                case EdgePosition.RIGHT_TOP:
+                    point.x = rect.right - padding;
+                    point.y = rect.top + rect.height * 0.25;
+                    break;
+                case EdgePosition.RIGHT_BOTTOM:
+                    point.x = rect.right - padding;
+                    point.y = rect.top + rect.height * 0.75;
                     break;
                 case EdgePosition.BOTTOM:
                     point.x = rect.left + rect.width / 2 + offsetX;
                     point.y = rect.bottom - padding;
                     break;
+                case EdgePosition.BOTTOM_LEFT:
+                    point.x = rect.left + rect.width * 0.25 + offsetX;
+                    point.y = rect.bottom - padding;
+                    break;
+                case EdgePosition.BOTTOM_RIGHT:
+                    point.x = rect.left + rect.width * 0.75 + offsetX;
+                    point.y = rect.bottom - padding;
+                    break;
                 case EdgePosition.LEFT:
                     point.x = rect.left + padding;
                     point.y = rect.top + rect.height / 2;
+                    break;
+                case EdgePosition.LEFT_TOP:
+                    point.x = rect.left + padding;
+                    point.y = rect.top + rect.height * 0.25;
+                    break;
+                case EdgePosition.LEFT_BOTTOM:
+                    point.x = rect.left + padding;
+                    point.y = rect.top + rect.height;
                     break;
             }
 
@@ -359,17 +399,16 @@ const workSteps: Step[] = [
         }
     }
 
-    // Configuration with separate padding values
     const connections: Connection[] = [
         {
             from: "01",
             to: "02",
             startPadding: -50,
-            endPadding: -40,
-            bendDirection: BendDirection.UP,
-            bendStrength: 0.8,
+            endPadding: -20,
+            bendDirection: BendDirection.LEFT,
+            bendStrength: -0.4,
             startEdge: EdgePosition.RIGHT,
-            endEdge: EdgePosition.TOP,
+            endEdge: EdgePosition.LEFT,
             startDirection: LineDirection.RIGHT,
             endDirection: LineDirection.LEFT,
         },
@@ -377,24 +416,24 @@ const workSteps: Step[] = [
             from: "02",
             to: "03",
             startPadding: -10,
-            endPadding: -20,
-            bendDirection: BendDirection.DOWN,
-            bendStrength: 0.5,
-            startEdge: EdgePosition.LEFT,
-            endEdge: EdgePosition.TOP,
+            endPadding: 50,
+            bendDirection: BendDirection.RIGHT,
+            bendStrength: 0.3,
+            startEdge: EdgePosition.LEFT_BOTTOM,
+            endEdge: EdgePosition.RIGHT,
             startDirection: LineDirection.DOWN,
-            endDirection: LineDirection.UP,
+            endDirection: LineDirection.RIGHT,
         },
         {
             from: "03",
             to: "04",
-            startPadding: 0,
-            endPadding: -15,
-            bendDirection: BendDirection.RIGHT,
-            bendStrength: 0.1,
-            startEdge: EdgePosition.RIGHT,
+            startPadding: -50,
+            endPadding: -50,
+            bendDirection: BendDirection.DOWN,
+            bendStrength: 0.6,
+            startEdge: EdgePosition.BOTTOM,
             endEdge: EdgePosition.LEFT,
-            startDirection: LineDirection.RIGHT,
+            startDirection: LineDirection.DOWN,
             endDirection: LineDirection.LEFT,
         },
     ];
