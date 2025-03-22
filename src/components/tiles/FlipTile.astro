@@ -9,14 +9,17 @@ interface Props {
 const { class: className, tileClass, ...rest } = Astro.props;
 ---
 
-<div class:list={["flip grid w-full cursor-pointer", tileClass]} {...rest}>
-    <div class:list={["front flex flex-col", className]}>
+<div
+    class:list={["flip grid w-full h-full cursor-pointer", tileClass]}
+    {...rest}
+>
+    <div class:list={["front flex flex-col h-full", className]}>
         <MousePointerClick
             class="absolute bottom-3 right-3 md:hidden z-10 text-secondary-night"
         />
         <slot name="front-slot" />
     </div>
-    <div class:list={["back", className]}>
+    <div class:list={["back flex flex-col h-full", className]}>
         <slot name="back-slot" />
     </div>
 </div>
