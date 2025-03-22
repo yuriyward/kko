@@ -1,12 +1,109 @@
 ---
 import ButtonAction from "@components/button/ButtonAction.astro";
-import WorkFlowDiagram from "@components/landing/workflow/WorkFlowDiagram.astro";
+import QuestionIcon from "@assets/icons/question-icon.svg";
+import IdeaIcon from "@assets/icons/idea-icon.svg";
+import CheckboxIcon from "@assets/icons/checkbox-icon.svg";
+import ChatIcon from "@assets/icons/chat-icon.svg";
+
+const workSteps = [
+    {
+        id: "01",
+        title: "Занурення в проблематику",
+        description: "Детальна діагностика для розуміння викликів і потреб.",
+        bgClass: "bg-primary-lagoon",
+    },
+    {
+        id: "02",
+        title: "Пошук рішень",
+        description:
+            "Презентація рішень замовнику. Визначення цілей. Узгодження дедлайнів і майлстоунів.",
+        bgClass: "bg-shades-lagoon-75",
+    },
+    {
+        id: "03",
+        title: "Реалізація проєкту",
+        description:
+            "Проведення воркшопу / впровадження процесу /  робота над вашим особистим кар'єрним запитом. На цьому етапі ми залучені разом: я веду процес, але у вас також буде своя не менш важлива зона відповідальності, щоб зміна ‘прижилась’.",
+        bgClass: "bg-shades-lagoon-50",
+    },
+    {
+        id: "04",
+        title: "Ретроспектива",
+        description: "Аналізуємо нашу співпрацю та результати.",
+        bgClass: "bg-shades-lagoon-30",
+    },
+];
 ---
 
-<section
-    class="xl:px-40 px-4 pt-12 md:pt-24 pb-20 bg-primary-eggnog flex flex-col items-center gap-16"
->
-    <h1 class="text-displayMedium">Досліджуємо. Створюємо. Впроваджуємо.</h1>
-    <WorkFlowDiagram />
-    <ButtonAction text="Забронювати дзвінок" href="#footer" />
+<section class="workflow-section">
+    <article class="intro-section py-20 xl:px-40 px-4 text-center">
+        <h1 class="text-displayMedium">
+            Досліджуємо. Створюємо. Впроваджуємо.
+        </h1>
+    </article>
+
+    <div class="workflow-container w-full">
+        <section class="holder">
+            {
+                workSteps.map((step, index) => (
+                    <>
+                        <header
+                            class={`holder__head ${step.bgClass} py-8 sticky w-full transition-all duration-300 ease-in-out h-auto`}
+                            style={`--t:${index}; --b:${workSteps.length - 1 - index};`}
+                        >
+                            <div class="container mx-auto px-4 flex justify-center items-center h-full gap-2">
+                                <span class="font-semibold">{step.id}</span>
+                                <span>{step.title}</span>
+                            </div>
+                        </header>
+                        <article
+                            class={`holder__item ${step.bgClass} p-8 sticky h-screen flex items-center justify-center`}
+                            style={`--t:${index};`}
+                        >
+                            <div class="max-w-4xl mx-auto flex flex-col md:flex-row md:items-start gap-6">
+                                <div class="icon-container p-4 flex items-center justify-center">
+                                    {index === 0 && (
+                                        <QuestionIcon class="w-14 h-14 transition-transform duration-300 ease-in-out hover:scale-110" />
+                                    )}
+                                    {index === 1 && (
+                                        <IdeaIcon class="w-14 h-14 transition-transform duration-300 ease-in-out hover:scale-110" />
+                                    )}
+                                    {index === 2 && (
+                                        <CheckboxIcon class="w-14 h-14 transition-transform duration-300 ease-in-out hover:scale-110" />
+                                    )}
+                                    {index === 3 && (
+                                        <ChatIcon class="w-14 h-14 transition-transform duration-300 ease-in-out hover:scale-110" />
+                                    )}
+                                </div>
+                                <div class="content">
+                                    <h2 class="text-displayXSmall mb-4">
+                                        {step.title}
+                                    </h2>
+                                    <p class="text-caption max-w-screen-sm">
+                                        {step.description}
+                                    </p>
+                                </div>
+                            </div>
+                        </article>
+                    </>
+                ))
+            }
+        </section>
+    </div>
+
+    <article class="outro-section py-20 xl:px-40 px-4 flex justify-center">
+        <ButtonAction text="Забронювати дзвінок" href="#footer" />
+    </article>
 </section>
+
+<style>
+    .holder__head {
+        z-index: 10;
+        bottom: calc(var(--b) * 5em);
+        top: calc(var(--t) * 5em);
+    }
+
+    .holder__item {
+        top: calc((var(--t) + 1) * 1.6em);
+    }
+</style>
