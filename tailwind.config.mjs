@@ -18,10 +18,11 @@ export default {
 					ghost: "#FFFFFF",
 				},
 				shades: {
-					"lagoon-50": "#B6C7F3",
 					"lagoon-75": "#91ABEC",
+					"lagoon-50": "#B6C7F3",
 					"lagoon-30": "#D3DDF8",
 					"lagoon-20": "#E2E9FA",
+					"eggnog-75": "#FEEDBA",
 					"eggnog-50": "#FFF3D1",
 					"eggnog-30": "#FFF8E3",
 				},

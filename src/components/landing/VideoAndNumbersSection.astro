@@ -2,9 +2,9 @@
 import { Vimeo, YouTube } from "astro-embed";
 ---
 
-<section class="xl:mx-40 mx-4 pt-12 md:pt-24 pb-20">
+<section class="xl:mx-40 mx-4 min-h-screen flex items-center justify-center">
     <div
-        class="flex xl:gap-36 md:gap-20 w-full md:flex-row flex-col xl:items-stretch items-center"
+        class="flex xl:gap-36 md:gap-20 w-full md:flex-row flex-col xl:items-stretch items-center justify-center"
     >
         <!-- <div
         class="xl:w-[710px] xl:h-[870px] md:w-[360px] md:h-[630px] h-[530px] w-full bg-slate-100 rounded-3xl overflow-hidden"
@@ -17,7 +17,7 @@ import { Vimeo, YouTube } from "astro-embed";
         />
     </div> -->
 
-        <div class="md:w-[710px] w-full overflow-hidden">
+        <div class="md:w-[560px] w-full overflow-hidden">
             <!-- 9:16 Aspect Ratio (16/9 * 100) = 177.78% -->
             <div class="relative w-full pt-[177.78%]">
                 <div class="absolute inset-0">
@@ -30,9 +30,7 @@ import { Vimeo, YouTube } from "astro-embed";
                 </div>
             </div>
         </div>
-        <div
-            class="flex flex-col justify-between text-secondary-night gap-10 w-full"
-        >
+        <div class="flex flex-col justify-between text-secondary-night gap-10">
             <div class="flex flex-col gap-8 pt-10">
                 <div class="text-displayLarge text-primary-eggnog">4 роки</div>
                 <div class="text-caption">

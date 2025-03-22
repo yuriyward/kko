@@ -5,9 +5,9 @@ import AchievementBadge from "@assets/achievement-badge.svg";
 import DoubleDiamond from "@assets/double-diamond.svg";
 ---
 
-<section>
+<section class="relative z-10">
     <div
-        class="py-20 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 overflow-hidden"
+        class="md:min-h-[90vh] py-20 md:py-0 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 relative"
     >
         <FlipTile
             class="bg-primary-lagoon md:p-10 p-4"
@@ -99,3 +99,9 @@ import DoubleDiamond from "@assets/double-diamond.svg";
         </FlipTile>
     </div>
 </section>
+
+<style>
+    section {
+        isolation: isolate;
+    }
+</style>
