@@ -4,9 +4,16 @@ export interface Props {
     href?: string;
     onClick?: string;
     openInNewTab?: boolean;
+    class?: string;
 }
 
-const { text, href, onClick, openInNewTab = true } = Astro.props;
+const {
+    text,
+    href,
+    onClick,
+    openInNewTab = true,
+    class: className = "",
+} = Astro.props;
 const commonStyles =
     "inline-block bg-secondary-night text-white md:text-button py-2.5 px-5 rounded-full hover:bg-gray-800 transition-colors cursor-pointer flex items-center gap-2 transition-colors";
 ---
@@ -19,14 +26,14 @@ const commonStyles =
                 target: "_blank",
                 rel: "noopener noreferrer",
             })}
-            class={commonStyles}
+            class={`${className} ${commonStyles}`}
         >
             <slot name="before" />
             {text}
             <slot name="after" />
         </a>
     ) : (
-        <button onclick={onClick} class={commonStyles}>
+        <button onclick={onClick} class={`${className} ${commonStyles}`}>
             <slot name="before" />
             {text}
             <slot name="after" />
