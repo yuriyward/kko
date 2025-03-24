@@ -5,50 +5,28 @@ const { class: className, ...rest } = Astro.props;
 ---
 
 <Slide class="bg-shades-lagoon-30">
-    <div class="flex justify-between items-end">
-        <h2 class="text-displaySmall">Командні ритуали</h2>
+    <div class="flex flex-col h-full justify-end gap-2">
+        <h2 class="text-displaySmall">Тренінг, воркшоп</h2>
+        <h3 class="text-caption">Для бізнесів</h3>
     </div>
 
-    <div class="flex flex-col justify-between">
-        <div class="flex flex-col gap-2">
-            <h3 class="text-heading">Ціль</h3>
-            <p class="text-caption">
-                Впровадження або покращення регулярних командних зустрічей та
-                процесів.
+    <div class="flex flex-col gap-6 h-full justify-center">
+        <div class="flex flex-col">
+            <p class="text-caption font-bold">
+                Співпрацюючи проєктно - я працюю на результат. Ми погоджуємо
+                нашу точку Б, узгоджуємо терміни на кожен майлстоун та
+                підписуємо договір про проєкнту співпрацю.
             </p>
         </div>
-        <div class="flex flex-col gap-2">
-            <h3 class="text-heading">Тривалість</h3>
-            <p class="text-caption">цикл з 3-4 зустрічей</p>
-        </div>
 
-        <div class="flex flex-col gap-2">
-            <h3 class="text-heading">Кому підійде</h3>
-            <p class="text-caption">
-                Команди, які хочуть покращити комунікацію та ефективність
-                внутрішніх процесів.
-            </p>
-        </div>
-    </div>
+        <p class="text-caption">
+            Якщо ви не зовсім чітко розумієте, в чому саме проблема, але
+            відчуваєте, що щось не працює так, як хотілося б, запишіться на
+            дзвінок. Під час розмови ми з’ясуємо, чи можу я вирішити ваш запит,
+            і, якщо так, разом визначимо наступні кроки.
+        </p>
 
-    <div class="flex flex-col gap-10">
-        <div class="flex flex-col gap-2">
-            <h3 class="text-heading">Що отримаєте</h3>
-            <ul class="text-caption space-y-5 list-disc list-outside ml-6">
-                <li>Аналіз існуючих процесів і ритуалів у команді.</li>
-                <li>
-                    Розробка нових ритуалів (щоденні наради, тижневі планування,
-                    ретроспективи).
-                </li>
-                <li>
-                    Проведення 1-2 фасилітованих сесій для налаштування
-                    процесів.
-                </li>
-                <li>Підтримка протягом впровадження нових ритуалів.</li>
-            </ul>
-        </div>
-
-        <div>
+        <div class="mt-5 justify-items-end">
             <ButtonAction text="Розпочати проект" />
         </div>
     </div>

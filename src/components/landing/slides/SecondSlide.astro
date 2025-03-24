@@ -5,55 +5,32 @@ const { class: className, ...rest } = Astro.props;
 ---
 
 <Slide class="bg-shades-lagoon-50">
-    <div class="flex justify-between items-end">
-        <h2 class="text-displaySmall">Стратегічна сесія</h2>
+    <div class="flex flex-col h-full justify-end gap-2">
+        <h2 class="text-displaySmall">HR консультація</h2>
+        <h3 class="text-caption">Для бізнесів</h3>
     </div>
 
-    <div class="flex flex-col justify-between">
-        <div class="flex flex-col gap-2">
-            <h3 class="text-heading">Ціль</h3>
+    <div class="flex flex-col gap-6 h-full justify-center">
+        <div class="flex flex-col">
             <p class="text-caption">
-                Розробка або перегляд стратегічних планів компанії чи відділу.
-            </p>
-        </div>
-        <div class="flex flex-col gap-2">
-            <h3 class="text-heading">Тривалість</h3>
-            <p class="text-caption">
-                2-5 зустрічей (залежно від глибини роботи та стратегічних
-                потреб).
+                Я працюю з full employee lifecycle. Окрім стандартних
+                HR-функцій, я займаюсь:
             </p>
         </div>
 
-        <div class="flex flex-col gap-2">
-            <h3 class="text-heading">Кому підійде</h3>
-            <p class="text-caption">
-                Власники бізнесу, керівники підрозділів, топ-менеджмент.
-            </p>
-        </div>
-    </div>
+        <ul class="text-caption space-y-5 list-disc list-outside ml-6">
+            <li>цілепокладанням (впровадженням OKR)</li>
+            <li>внутрішніми комунікаціями</li>
+            <li>кар'єрними стратегіями (розробка кар'єрних мап).</li>
+        </ul>
 
-    <div class="flex flex-col gap-10">
-        <div class="flex flex-col gap-2">
-            <h3 class="text-heading">Що отримаєте</h3>
-            <ul class="text-caption space-y-5 list-disc list-outside ml-6">
-                <li>
-                    Підготовча зустріч для аналізу поточного стану та цілей
-                    компанії.
-                </li>
-                <li>
-                    Проведення стратегічної фасилітованої сесії з фокусом на
-                    довгострокові плани (офлайн/онлайн).
-                </li>
-                <li>
-                    Розробка стратегічних цілей та ключових кроків їх
-                    досягнення.
-                </li>
-                <li>Післясесійний стратегічний документ.</li>
-                <li>Консультація через місяць для оцінки прогресу.</li>
-            </ul>
-        </div>
+        <p class="text-caption">
+            Якщо ви хочете навести лад у процесах та підняти ефективність вашої
+            команди, запишіться на дзвінок. Разом визначимо, як я можу допомогти
+            і в якому форматі працюватимемо.
+        </p>
 
-        <div>
+        <div class="mt-5 justify-items-end">
             <ButtonAction text="Розпочати проект" />
         </div>
     </div>

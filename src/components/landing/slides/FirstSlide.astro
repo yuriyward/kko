@@ -5,45 +5,46 @@ const { class: className, ...rest } = Astro.props;
 ---
 
 <Slide class="bg-shades-lagoon-75">
-    <div class="flex justify-between items-end">
-        <h2 class="text-displaySmall">Брейнштормінг</h2>
+    <div class="flex flex-col h-full justify-end gap-2">
+        <h2 class="text-displaySmall">Тренінг, воркшоп</h2>
+        <h3 class="text-caption">Для бізнесів</h3>
     </div>
 
-    <div class="flex flex-col justify-between">
-        <div class="flex flex-col gap-2">
-            <h3 class="text-heading">Ціль</h3>
+    <div class="flex flex-col gap-6 h-full justify-center">
+        <div class="flex flex-col">
             <p class="text-caption">
-                Генерація нових ідей та рішень для поточних або нових проектів.
+                Це навчання для вашої команди, яке поєднує ігрові методи з
+                фасилітаційними техніками для вирішення вашого бізнес-запиту.
+                <b
+                    >Концепція тренінгу буде зібрана, як деталі з LEGO,
+                    індивідуально під вашу команду та потребу.</b
+                > Ось кілька варіантів тренінгів: Генерація нових ідей та рішень
+                для поточних або нових проектів.
             </p>
         </div>
-        <div class="flex flex-col gap-2">
-            <h3 class="text-heading">Тривалість</h3>
-            <p class="text-caption">2-3 години.</p>
-        </div>
 
-        <div class="flex flex-col gap-2">
-            <h3 class="text-heading">Кому підійде</h3>
-            <p class="text-caption">
-                Командам, які шукають інноваційні рішення або нові ідеї для
-                розвитку продуктів.
-            </p>
-        </div>
-    </div>
+        <ul class="text-caption space-y-5 list-disc list-outside ml-6">
+            <li>
+                <b>Клієнтський сервіс</b> — для бізнесів, які прагнуть покращити
+                досвід своїх клієнтів.
+            </li>
+            <li>
+                <b>Ефективна комунікація в команді</b> — для команд, які бажають
+                налагодити продуктивну і здорову взаємодію всередині колективу.
+            </li>
+        </ul>
 
-    <div class="flex flex-col gap-10">
-        <div class="flex flex-col gap-2">
-            <h3 class="text-heading">Що отримаєте</h3>
-            <ul class="text-caption space-y-5 list-disc list-outside ml-6">
-                <li>Підготовка зустрічі для визначення теми брейнштрому.</li>
-                <li>Проведення інтенсивної сесії для генерації ідей.</li>
-                <li>
-                    Структурований аналіз ідей і визначення ключових напрямків.
-                </li>
-                <li>Післясесійний звіт з висновками та планом дій.</li>
-            </ul>
-        </div>
+        <p class="text-caption">
+            <b
+                >Також можливе створення тренінгу під будь-який інший
+                специфічний запит вашого бізнесу.</b
+            > У такому випадку я залучаю відповідного експерта, щоб надати точне
+            вирішення, а сама беру на себе організацію тренінгу: від проектування
+            вправ до координації групової сесії, забезпечуючи максимальну відповідність
+            тренінгу вашим вимогам.
+        </p>
 
-        <div>
+        <div class="mt-5 justify-items-end">
             <ButtonAction text="Розпочати проект" />
         </div>
     </div>

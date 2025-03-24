@@ -4,57 +4,28 @@ import Slide from "@components/slide/Slide.astro";
 const { class: className, ...rest } = Astro.props;
 ---
 
-<Slide class="bg-shades-eggnog-50">
-    <div class="flex justify-between items-end">
-        <h2 class="text-displaySmall">Дизайн карєри</h2>
+<Slide class="bg-shades-eggnog-75">
+    <div class="flex flex-col h-full justify-end gap-2">
+        <h2 class="text-displaySmall">Незалежний HR</h2>
+        <h3 class="text-caption">Для індивідуальних клієнтів</h3>
     </div>
 
-    <div class="flex flex-col justify-between">
-        <div class="flex flex-col gap-2">
-            <h3 class="text-heading">Ціль</h3>
-            <ul class="text-caption space-y-5 list-disc list-outside ml-6">
-                <li>
-                    Професіонали, які шукають нові можливості для кар'єрного
-                    росту.
-                </li>
-                <li>
-                    Студенти та випускники, які прагнуть визначити свої кар'єрні
-                    цілі.
-                </li>
-                <li>Люди, чиї кар'єри не відповідають їхнім цінностям.</li>
-            </ul>
-        </div>
-
-        <div class="flex flex-col gap-2">
-            <h3 class="text-heading">Формат</h3>
-            <p class="text-caption">
-                3 місяці, 6 зустрічей + одна сесія фоллоу-ап через 4 місяці.
+    <div class="flex flex-col gap-6 h-full justify-center">
+        <div class="flex flex-col">
+            <p class="text-caption font-bold">
+                Я - ваш незалежний HR-консультант. У мене немає жодних інтересів
+                щодо вашої кар'єри, тому можу чесно підказати, що робити, якщо
+                ви не знаєте, як рухатись далі, застрягли на місці, або виникли
+                питання з управління командою.
             </p>
         </div>
-    </div>
 
-    <div class="flex flex-col gap-10">
-        <div class="flex flex-col gap-2">
-            <h3 class="text-heading">Що отримаєте</h3>
-            <ul class="text-caption space-y-5 list-disc list-outside ml-6">
-                <li>Чітке розуміння кар'єрних цілей.</li>
-                <li>Індивідуальний план дій з зовнішнім експертом.</li>
-                <li>
-                    Практичні інструменти для пошуку роботи:
-                    <ul class="mt-5 space-y-5 list-disc list-outside ml-6">
-                        <li>Резюме</li>
-                        <li>Підготовка до співбесіди</li>
-                        <li>Презентація своєї роботи на перформанс рев’ю.</li>
-                        <li>
-                            Підготовка до проговорень своїх прагнень у межах
-                            компанії.
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
+        <p class="text-caption">
+            Моя мета — допомогти вам розібратися в ситуації і надати об'єктивну
+            HR-експертизу для вирішення вашого питання.
+        </p>
 
-        <div>
+        <div class="mt-5 justify-items-end">
             <ButtonAction text="Розпочати проект" />
         </div>
     </div>
