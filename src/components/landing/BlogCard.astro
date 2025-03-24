@@ -1,0 +1,87 @@
+---
+import { Image } from "astro:assets";
+import type { ImageMetadata } from "astro";
+import ButtonAction from "@components/button/ButtonAction.astro";
+
+// Define the props interface
+export interface Props {
+    title: string;
+    description: string;
+    image?: string | ImageMetadata;
+    date?: string;
+    author?: string;
+    authorImage?: ImageMetadata;
+    url: string;
+}
+
+// Destructure the props
+const {
+    title,
+    description,
+    image = "/placeholder.jpg",
+    author = "Anonymous",
+    date,
+    authorImage,
+    url,
+} = Astro.props;
+
+// Check if image is a string (path) or ImageMetadata object
+const isStringImage = typeof image === "string";
+---
+
+<div class="bg-primary-cotton overflow-hidden flex flex-col h-full">
+    {
+        image && (
+            <a
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                class="block h-72 w-full overflow-hidden px-5 pt-5"
+            >
+                {isStringImage ? (
+                    <img
+                        src={image}
+                        alt={title}
+                        class="w-full h-full object-cover"
+                    />
+                ) : (
+                    <Image
+                        src={image}
+                        alt={title}
+                        class="w-full h-full object-cover"
+                    />
+                )}
+            </a>
+        )
+    }
+    <div class="p-6 flex flex-col flex-grow">
+        <a href={url} target="_blank" rel="noopener noreferrer" class="block">
+            <h3 class="text-displaySmall">
+                {title}
+            </h3>
+        </a>
+        <p class="text-caption mt-6 mb-6 flex-grow">
+            {description}
+        </p>
+        <div class="flex justify-between items-center mt-auto">
+            <div class="flex items-center gap-3">
+                <div>
+                    {
+                        authorImage && (
+                            <Image
+                                src={authorImage}
+                                alt={`${author} profile picture`}
+                                class="w-8 h-8 rounded-full"
+                            />
+                        )
+                    }
+                </div>
+                <div class="flex flex-col">
+                    {author && <span class="text-captionSmall">{author}</span>}
+                    {date && <span class="text-bodySmall ">{date}</span>}
+                </div>
+            </div>
+            <ButtonAction text="Читати" href={url} />
+        </div>
+    </div>
+</div>

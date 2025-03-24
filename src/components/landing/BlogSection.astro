@@ -1,3 +1,57 @@
-<section class="h-screen xl:mx-40 mx-4 flex flex-col items-center gap-16">
+---
+import jakZnajty from "@assets/images/jak_znajty.webp";
+import kolyRiszenia from "@assets/images/koly_riszenia.webp";
+import zustriczi from "@assets/images/zustriczi.webp";
+import KateMiniProfile from "@assets/images/kate-mini-profile.png";
+import BlogCard from "./BlogCard.astro";
+
+// Blog posts data array
+const blogPosts = [
+    {
+        title: "Як знайти людей, які підсилять ваш бізнес: баланс хард та софт скілів",
+        description:
+            "Ми хочемо залишатися на шляху успіху, знайшовши правильних людей для нашої команди.",
+        image: jakZnajty,
+        author: "Катерина Кошенко",
+        readTime: "3 хв",
+        url: "https://medium.com/@koshenko.kate/як-знайти-людей-які-підсилять-ваш-бізнес-баланс-хард-та-софт-скілів-bf4903f667d9",
+    },
+    {
+        title: "Коли рішення має бути прийнято швидко",
+        description: "Ефективний процес прийняття рішень у бізнесі",
+        image: kolyRiszenia,
+        author: "Катерина Кошенко",
+        readTime: "5 хв",
+        url: "https://medium.com/@koshenko.kate/https-medium-com-koshenko-katia-values-guide-us-f92f73ac910a",
+    },
+    {
+        title: "Зустрічі один на один",
+        description: "Сила регурярних 1:1 зустрічей у команді",
+        image: zustriczi,
+        author: "Катерина Кошенко",
+        readTime: "6 хв",
+        url: "https://medium.com/@koshenko.kate/зустрічі-один-на-один-a117076d9d4f",
+    },
+];
+---
+
+<section
+    class="min-h-[70vh] xl:mx-40 mx-4 flex flex-col items-center gap-16 pb-40"
+>
     <h1 class="text-displayMedium">Слідкуйте за моїм блогом</h1>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {
+            blogPosts.map((post) => (
+                <BlogCard
+                    title={post.title}
+                    description={post.description}
+                    image={post.image}
+                    author={post.author}
+                    authorImage={KateMiniProfile}
+                    date={`Читати ${post.readTime}`}
+                    url={post.url}
+                />
+            ))
+        }
+    </div>
 </section>

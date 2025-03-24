@@ -41,6 +41,7 @@ export default {
 				body: ["28px", { lineHeight: "1.3", fontWeight: "400" }], // 400 corresponds to Regular
 				caption: ["20px", { lineHeight: "1.2", fontWeight: "400" }],
 				captionSmall: ["16px", { lineHeight: "1.2", fontWeight: "400" }],
+				bodySmall: ["12px", { lineHeight: "1.2", fontWeight: "400" }],
 				badge: ["20px", { lineHeight: "1.2", fontWeight: "700" }], // 700 corresponds to Bold
 				button: ["20px", { lineHeight: "1.2", fontWeight: "400" }], // 400 corresponds to Regular
 				number: ["20px", { lineHeight: "1.2", fontWeight: "500" }], // 500 corresponds to Medium

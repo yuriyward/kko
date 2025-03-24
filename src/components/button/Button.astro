@@ -3,16 +3,24 @@ export interface Props {
     text: string;
     href?: string;
     onClick?: string;
+    openInNewTab?: boolean;
 }
 
-const { text, href, onClick } = Astro.props;
+const { text, href, onClick, openInNewTab = true } = Astro.props;
 const commonStyles =
     "inline-block bg-secondary-night text-white md:text-button py-2.5 px-5 rounded-full hover:bg-gray-800 transition-colors cursor-pointer flex items-center gap-2 transition-colors";
 ---
 
 {
     href ? (
-        <a href={href} class={commonStyles}>
+        <a
+            href={href}
+            {...(openInNewTab && {
+                target: "_blank",
+                rel: "noopener noreferrer",
+            })}
+            class={commonStyles}
+        >
             <slot name="before" />
             {text}
             <slot name="after" />
