@@ -11,7 +11,7 @@ export default {
 					lagoon: "#6C8FE6",
 					cotton: "#F5F0EB",
 					wood: "#A68E6C",
-					smoke: "#AFACA2",
+					smoke: "#C7C2B3",
 				},
 				secondary: {
 					night: "#2A2A2A",
@@ -28,17 +28,16 @@ export default {
 				},
 			},
 			fontFamily: {
-				sans: ["Nunito Variable", ...defaultTheme.fontFamily.sans],
-				amatic: ["Amatic SC", "Caveat", "Indie Flower", "cursive"],
+				sans: ["Montserrat Variable", ...defaultTheme.fontFamily.sans],
 			},
 			fontSize: {
-				displayXLarge: ["128px", { lineHeight: "1.5", fontWeight: "800" }], // 800 corresponds to ExtraBold
-				displayLarge: ["112px", { lineHeight: "0.8", fontWeight: "800" }],
-				displayMedium: ["48px", { lineHeight: "1.2", fontWeight: "800" }],
-				displaySmall: ["36px", { lineHeight: "44px", fontWeight: "800" }],
+				displayXLarge: ["128px", { lineHeight: "1.5", fontWeight: "600" }], // 600 corresponds to ExtraBold
+				displayLarge: ["112px", { lineHeight: "0.8", fontWeight: "600" }],
+				displayMedium: ["48px", { lineHeight: "1.2", fontWeight: "600" }],
+				displaySmall: ["36px", { lineHeight: "44px", fontWeight: "600" }],
 				displayXSmall: ["32px", { lineHeight: "1.2", fontWeight: "300" }], // 300 corresponds to Light
 				heading: ["28px", { lineHeight: "1.5", fontWeight: "700" }], // 700 corresponds to Bold
-				body: ["28px", { lineHeight: "1.3", fontWeight: "400" }], // 400 corresponds to Regular
+				body: ["28px", { lineHeight: "1.5", fontWeight: "400" }], // 400 corresponds to Regular
 				caption: ["20px", { lineHeight: "1.2", fontWeight: "400" }],
 				captionSmall: ["16px", { lineHeight: "1.2", fontWeight: "400" }],
 				bodySmall: ["12px", { lineHeight: "1.2", fontWeight: "400" }],

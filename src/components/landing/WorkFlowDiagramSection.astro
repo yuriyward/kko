@@ -52,8 +52,12 @@ const workSteps = [
                             style={`--t:${index}; --b:${workSteps.length - 1 - index};`}
                         >
                             <div class="container mx-auto px-4 flex justify-center items-center h-full gap-2">
-                                <span class="font-semibold">{step.id}</span>
-                                <span>{step.title}</span>
+                                {/* <span class="text-displayXSmall font-bold">
+                                    {step.id}
+                                </span> */}
+                                <span class="text-displaySmall">
+                                    {step.title}
+                                </span>
                             </div>
                         </header>
                         <article
@@ -76,10 +80,10 @@ const workSteps = [
                                     )}
                                 </div>
                                 <div class="content">
-                                    <h2 class="text-displayXSmall mb-4">
+                                    <h2 class="text-displayMedium mb-4">
                                         {step.title}
                                     </h2>
-                                    <p class="text-caption max-w-screen-sm">
+                                    <p class="text-displayXSmall max-w-screen-sm">
                                         {step.description}
                                     </p>
                                 </div>
@@ -95,8 +99,8 @@ const workSteps = [
 <style>
     .holder__head {
         z-index: 10;
-        bottom: calc(var(--b) * 5em);
-        top: calc(var(--t) * 5em);
+        bottom: calc(var(--b) * 6em);
+        top: calc(var(--t) * 6em);
     }
 
     .holder__item {

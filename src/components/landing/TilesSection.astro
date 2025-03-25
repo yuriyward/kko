@@ -1,8 +1,5 @@
 ---
 import FlipTile from "@components/tiles/FlipTile.astro";
-import ShiningEffect from "@assets/shining-effect.svg";
-import AchievementBadge from "@assets/achievement-badge.svg";
-import DoubleDiamond from "@assets/double-diamond.svg";
 ---
 
 <section class="relative z-10">
@@ -10,117 +7,112 @@ import DoubleDiamond from "@assets/double-diamond.svg";
         class="md:min-h-[90vh] py-20 md:py-0 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 relative"
     >
         <FlipTile
-            class="bg-primary-lagoon md:p-10 p-4"
+            class="bg-primary-cotton md:p-10 p-4"
             tileClass="md:row-span-2"
         >
-            <div slot="front-slot" class="flex flex-col h-full">
-                <h2 class="text-displayMedium text-secondary-ghost">
-                    Чому співпраця зі мною?
+            <div slot="front-slot" class="flex flex-col h-full justify-center">
+                <h2
+                    class="text-[3.5rem] leading-[1.2] font-light text-secondary-night"
+                >
+                    <i class="font-semibold">Чому співпраця</i> зі мною?
                 </h2>
-                <div class="flex-1 flex justify-center items-center">
-                    <ShiningEffect />
-                </div>
             </div>
 
-            <div slot="back-slot" class="flex flex-col gap-10">
-                <h2 class="text-displayMedium text-secondary-ghost">
-                    Чому співпраця зі мною?
+            <div
+                slot="back-slot"
+                class="flex flex-col gap-10 text-secondary-night"
+            >
+                <h2 class="text-displayMedium">
+                    <i class="font-semibold">Чому співпраця</i> зі мною?
                 </h2>
-                <h2 class="text-displaySmall text-secondary-ghost">
+                <i class="text-displaySmall">
                     Людські відносини в контексті взаємодії працівник-бізнес, це
                     моя зона експертизи.
-                </h2>
-                <div class="text-secondary-ghost text-displayXSmall">
+                </i>
+                <div class="text-displayXSmall">
                     Я працюю на результат і, якщо бачу, що не можу бути
                     корисною, чесно скажу про це і постараюсь знайти когось із
                     мого нетворку, хто зможе допомогти.
                 </div>
-                <div class="text-secondary-ghost text-displayXSmall">
-                    <b>Результат-орієнтований</b> підхід я застосовую в кожному варіанті
-                    співпраці, незалежно від того, чи це клієнт з кар'єрним запитом,
-                    лідер, який прагне розвитку, чи власник.
+                <div class="text-displayXSmall">
+                    <b class="font-bold">Результат-орієнтований</b>
+                    підхід я застосовую в кожному варіанті співпраці, незалежно від
+                    того, чи це клієнт з кар'єрним запитом, лідер, який прагне розвитку,
+                    чи власник.
                 </div>
             </div>
         </FlipTile>
         <FlipTile class="bg-primary-eggnog md:p-10 p-4">
-            <div slot="front-slot" class="flex flex-col">
-                <h2 class="text-displayMedium text-secondary-night">
-                    Персональний запит
+            <div slot="front-slot" class="flex flex-col h-full justify-center">
+                <h2
+                    class="text-[3.5rem] leading-[1.2] font-light text-secondary-night"
+                >
+                    <i class="font-semibold">Персональний</i> запит
                 </h2>
             </div>
 
             <div slot="back-slot" class="flex flex-col gap-10">
-                <h2 class="text-displayMedium text-secondary-night">
+                <i class="text-displayMedium text-secondary-night">
                     Персональний запит
-                </h2>
+                </i>
                 <div class="text-secondary-night text-displayXSmall">
-                    Коли ви прагнете отримати розв'язання своїх кар'єрних питань
-                    від незалежного HR.
+                    Pозв'язання ваших кар'єрних питань від незалежного HR.
                 </div>
             </div>
         </FlipTile>
         <FlipTile class="bg-shades-lagoon-50 md:p-10 p-4">
-            <div slot="front-slot" class="flex flex-col h-full">
-                <h2 class="text-displayMedium text-secondary-ghost">B2B</h2>
-                <div class="flex-1 flex justify-center items-center">
-                    <DoubleDiamond />
-                </div>
+            <div slot="front-slot" class="flex flex-col h-full justify-center">
+                <i
+                    class="text-[3.5rem] leading-[1.2] font-semibold text-secondary-night"
+                    >B2B</i
+                >
             </div>
 
             <div slot="back-slot" class="flex flex-col gap-10">
-                <h2 class="text-displayMedium text-secondary-ghost">B2B</h2>
-                <div class="text-secondary-ghost text-displayXSmall">
-                    Якщо ви оберете аналіз вашої проблеми - я допоможу вам
-                    <b>побачити невидиме.</b>
-                </div>
-                <div class="text-secondary-ghost text-displayXSmall">
-                    Якщо у вас є конктерний запит - запропоную <b
-                        >оптимальне рішення.</b
-                    >
-                </div>
-                <div class="text-secondary-ghost text-displayXSmall">
-                    Опція "воркшоп” - разом ми визначимо вашу мету та підберемо
-                    експерта у вашому питанні, спільно з яким <b
-                        >адаптуємо воркшоп під вашу бізнес ціль та команду.</b
-                    >
-                </div>
-            </div>
-        </FlipTile>
-        <FlipTile class="bg-primary-cotton md:p-10 p-4">
-            <div slot="front-slot" class="flex flex-col h-full">
-                <h2 class="text-displayMedium text-secondary-night">
-                    Лідери команд
-                </h2>
-                <div class="flex-1 flex justify-center items-center">
-                    <AchievementBadge />
-                </div>
-            </div>
-
-            <div slot="back-slot" class="flex flex-col gap-10">
-                <h2 class="text-displayMedium text-secondary-night">
-                    Лідери команд
-                </h2>
+                <i class="text-displayMedium text-secondary-night">B2B</i>
                 <div class="text-secondary-night text-displayXSmall">
-                    Підтримка тих самих сильних лідерів 💪🔋 Допомога в розвитку
-                    навичок, важливих для управління командою.
+                    Якщо ви оберете аналіз вашої проблеми - я допоможу вам
+                    <b class="font-bold">побачити невидиме.</b> Якщо ж у вас є конктерний
+                    запит - запропоную
+                    <b class="font-bold">рішення.</b>
                 </div>
             </div>
         </FlipTile>
         <FlipTile class="bg-primary-smoke md:p-10 p-4">
-            <div slot="front-slot" class="flex flex-col">
-                <h2 class="text-displayMedium text-secondary-ghost">
-                    HR спеціалісти
+            <div slot="front-slot" class="flex flex-col h-full justify-center">
+                <h2
+                    class="text-[3.5rem] leading-[1.2] font-light text-secondary-night"
+                >
+                    <i class="font-semibold">Лідери</i> команд
                 </h2>
             </div>
 
             <div slot="back-slot" class="flex flex-col gap-10">
-                <h2 class="text-displayMedium text-secondary-ghost">
+                <i class="text-displayMedium text-secondary-night">
+                    Лідери команд
+                </i>
+                <div class="text-secondary-night text-displayXSmall">
+                    Допомога в розвитку навичок управління командою та вирішенні
+                    складних внутрішніх питань.
+                </div>
+            </div>
+        </FlipTile>
+        <FlipTile class="bg-shades-lagoon-20 md:p-10 p-4">
+            <div slot="front-slot" class="flex flex-col h-full justify-center">
+                <i
+                    class="text-[3.5rem] leading-[1.2] font-light text-secondary-night"
+                >
+                    <i class="font-semibold">HR</i> спеціалісти
+                </i>
+            </div>
+
+            <div slot="back-slot" class="flex flex-col gap-10">
+                <i class="text-displayMedium text-secondary-night">
                     HR спеціалісти
-                </h2>
-                <div class="text-secondary-ghost text-displayXSmall">
-                    Якщо у вас є проблема / питання, або може стопер - я залюбки
-                    поділюсь знаннями в межах моєї експертизи і максимально
-                    допоможу.
+                </i>
+                <div class="text-secondary-night text-displayXSmall">
+                    Допомагаю колегам HR зростати та знаходити об'єктивні
+                    рішення у складних ситуаціях.
                 </div>
             </div>
         </FlipTile>

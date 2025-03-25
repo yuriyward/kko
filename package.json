@@ -17,8 +17,7 @@
 	"dependencies": {
 		"@astrojs/cloudflare": "^12.2.0",
 		"@astrojs/tailwind": "^5.1.4",
-		"@fontsource-variable/nunito": "^5.1.1",
-		"@fontsource/amatic-sc": "^5.1.1",
+		"@fontsource-variable/montserrat": "^5.2.5",
 		"astro": "^5.1.6",
 		"astro-embed": "^0.9.0",
 		"sharp": "^0.33.5",
