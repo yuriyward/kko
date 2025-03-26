@@ -1,0 +1,108 @@
+---
+import KKoLogo from "@assets/kko-logo.svg";
+const year = new Date().getFullYear();
+---
+
+<footer
+    id="footer"
+    class="bg-secondary-ghost text-secondary-night p-4 xl:p-16 xl:pt-10"
+>
+    <div class="flex flex-col gap-12 xl:gap-10">
+        <div class="flex flex-col xl:flex-row justify-between gap-8 xl:gap-6">
+            <!-- Mobile View: Three-column layout -->
+            <div class="flex flex-row justify-between w-full xl:hidden">
+                <!-- First column: Logo -->
+                <div class="flex items-center">
+                    <a href="#">
+                        <KKoLogo class={"cursor-pointer h-11"} />
+                    </a>
+                </div>
+
+                <!-- Second column: Navigation links -->
+                <div class="flex flex-col gap-4 xl:gap-2">
+                    <a href="#packages" class="hover:underline text-caption"
+                        >Пакети</a
+                    >
+                    <a href="#about-me" class="hover:underline text-caption"
+                        >Про мене</a
+                    >
+                    <a href="#blog" class="hover:underline text-caption">Блог</a
+                    >
+                </div>
+
+                <!-- Third column: Social links -->
+                <div class="flex flex-col gap-4 xl:gap-2">
+                    <a
+                        href="https://www.instagram.com/koshenkoo/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="hover:underline text-caption">Instagram</a
+                    >
+                    <a
+                        href="https://www.linkedin.com/in/kateryna-koshenko-598386199/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="hover:underline text-caption">Linkedin</a
+                    >
+                </div>
+            </div>
+
+            <!-- Desktop View: Original layout -->
+            <nav
+                class="hidden xl:flex gap-10 items-center w-full xl:w-fit justify-between xl:justify-start"
+            >
+                <a href="#">
+                    <KKoLogo class={"cursor-pointer h-11"} />
+                </a>
+                <a href="#packages" class="hover:underline text-caption"
+                    >Пакети</a
+                >
+                <a href="#about-me" class="hover:underline text-caption"
+                    >Про мене</a
+                >
+                <a href="#blog" class="hover:underline text-caption">Блог</a>
+                <a
+                    href="https://www.instagram.com/koshenkoo/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="hover:underline text-caption">Instagram</a
+                >
+                <a
+                    href="https://www.linkedin.com/in/kateryna-koshenko-598386199/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="hover:underline text-caption">Linkedin</a
+                >
+            </nav>
+            <nav class="gap-6 items-center hidden xl:flex">
+                <a href="#" class="hover:underline text-caption"
+                    >Політика конфіденційності</a
+                >
+                <a href="#" class="hover:underline text-caption"
+                    >Правила та умови</a
+                >
+            </nav>
+        </div>
+        <div
+            class="flex flex-col-reverse xl:flex-row justify-between items-start xl:items-center gap-6"
+        >
+            <p class="text-captionSmall text-left">
+                &copy; <span id="footer-year">{year}</span>. Всі права захищені.
+            </p>
+            <nav
+                class="flex flex-col xl:flex-row gap-6 items-start xl:items-center xl:hidden"
+            >
+                <a href="#" class="hover:underline text-captionSmall"
+                    >Політика конфіденційності</a
+                >
+                <a href="#" class="hover:underline text-captionSmall"
+                    >Правила та умови</a
+                >
+            </nav>
+        </div>
+    </div>
+</footer>
+
+<script is:inline>
+    document.getElementById("footer-year").innerText = new Date().getFullYear();
+</script>

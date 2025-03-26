@@ -123,4 +123,17 @@ import FlipTile from "@components/tiles/FlipTile.astro";
     section {
         isolation: isolate;
     }
+
+    /* Add word break styles for better text wrapping */
+    h2,
+    i,
+    div {
+        word-break: break-word;
+        hyphens: auto;
+    }
+
+    /* Fix for the compound word */
+    .font-bold {
+        display: inline;
+    }
 </style>

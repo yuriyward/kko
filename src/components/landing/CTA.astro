@@ -2,8 +2,13 @@
 import Button from "@components/button/Button.astro";
 ---
 
-<section class="flex flex-col gap-16 bg-primary-lagoon md:px-40 px-4 pt-20">
-    <h2 class="text-secondary-ghost md:text-displayLarge text-displayMedium">
+<section
+    id="contact"
+    class="flex flex-col gap-16 bg-primary-lagoon md:px-40 px-4 py-24"
+>
+    <h2
+        class="text-secondary-ghost md:text-displayLarge text-displayMedium break-words"
+    >
         Йдемо разом?
     </h2>
     <p class="text-secondary-ghost md:text-displayXSmall text-captionSmall">
@@ -11,11 +16,11 @@ import Button from "@components/button/Button.astro";
         адаптованого до ваших потреб, і підтримка у впровадженні змін у вашу
         команду. З вашої сторони потрібні залученість і готовність до змін.
     </p>
-    <article class="outro-section py-10 pb-20 flex justify-center">
+    <article class="pt-10 flex justify-center">
         <Button
             text="Забронювати дзвінок"
             href="https://cal.com/kateryna-koshenko-kkhqct"
-            class="md:text-displayXSmall text-body py-4 px-8 font-bold"
+            class="md:text-displayXSmall text-caption py-4 px-8 font-bold"
         />
     </article>
 </section>
