@@ -6,13 +6,15 @@ const { class: className, ...rest } = Astro.props;
 
 <Slide class="bg-shades-eggnog-75">
     <div class="flex flex-col h-full justify-end gap-2">
-        <h2 class="text-displaySmall">Незалежний HR</h2>
-        <h3 class="text-caption">Для індивідуальних клієнтів</h3>
+        <h2 class="text-2xl sm:text-3xl md:text-displaySmall">Незалежний HR</h2>
+        <h3 class="text-sm sm:text-base md:text-caption">
+            Для індивідуальних клієнтів
+        </h3>
     </div>
 
     <div class="flex flex-col gap-6 h-full justify-center">
         <div class="flex flex-col">
-            <p class="text-caption font-bold">
+            <p class="text-sm sm:text-base md:text-caption font-bold">
                 Я - ваш незалежний HR-консультант. У мене немає жодних інтересів
                 щодо вашої кар'єри, тому можу чесно підказати, що робити, якщо
                 ви не знаєте, як рухатись далі, застрягли на місці, або виникли
@@ -20,7 +22,7 @@ const { class: className, ...rest } = Astro.props;
             </p>
         </div>
 
-        <p class="text-caption">
+        <p class="text-sm sm:text-base md:text-caption">
             Моя мета — допомогти вам розібратися в ситуації і надати об'єктивну
             HR-експертизу для вирішення вашого питання.
         </p>

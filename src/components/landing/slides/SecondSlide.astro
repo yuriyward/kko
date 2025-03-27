@@ -6,25 +6,29 @@ const { class: className, ...rest } = Astro.props;
 
 <Slide class="bg-shades-lagoon-50">
     <div class="flex flex-col h-full justify-end gap-2">
-        <h2 class="text-displaySmall">HR консультація</h2>
-        <h3 class="text-caption">Для бізнесів</h3>
+        <h2 class="text-2xl sm:text-3xl md:text-displaySmall">
+            HR консультація
+        </h2>
+        <h3 class="text-sm sm:text-base md:text-caption">Для бізнесів</h3>
     </div>
 
     <div class="flex flex-col gap-6 h-full justify-center">
         <div class="flex flex-col">
-            <p class="text-caption">
+            <p class="text-sm sm:text-base md:text-caption">
                 Я працюю з full employee lifecycle. Окрім стандартних
                 HR-функцій, я займаюсь:
             </p>
         </div>
 
-        <ul class="text-caption space-y-5 list-disc list-outside ml-6">
+        <ul
+            class="text-sm sm:text-base md:text-caption space-y-5 list-disc list-outside ml-6"
+        >
             <li>цілепокладанням (впровадженням OKR)</li>
             <li>внутрішніми комунікаціями</li>
             <li>кар'єрними стратегіями (розробка кар'єрних мап).</li>
         </ul>
 
-        <p class="text-caption">
+        <p class="text-sm sm:text-base md:text-caption">
             Якщо ви хочете навести лад у процесах та підняти ефективність вашої
             команди, запишіться на дзвінок. Разом визначимо, як я можу допомогти
             і в якому форматі працюватимемо.

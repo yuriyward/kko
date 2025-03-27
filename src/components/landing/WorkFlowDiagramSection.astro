@@ -61,7 +61,7 @@ const workSteps = [
                             </div>
                         </header>
                         <article
-                            class={`holder__item ${step.bgClass} p-8 sticky h-screen flex items-center justify-center`}
+                            class={`holder__item ${step.bgClass} p-8 sticky h-screen flex items-start md:items-center justify-center pt-36 md:pt-8`}
                             style={`--t:${index};`}
                         >
                             <div class="max-w-4xl mx-auto flex flex-col md:flex-row md:items-start gap-6">
@@ -83,7 +83,7 @@ const workSteps = [
                                     <h2 class="text-displayMedium mb-4">
                                         {step.title}
                                     </h2>
-                                    <p class="text-displayXSmall max-w-screen-sm">
+                                    <p class="text-bodyMedium md:text-displayXSmall max-w-screen-sm">
                                         {step.description}
                                     </p>
                                 </div>

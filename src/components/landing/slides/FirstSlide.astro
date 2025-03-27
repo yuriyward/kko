@@ -6,13 +6,15 @@ const { class: className, ...rest } = Astro.props;
 
 <Slide class="bg-shades-lagoon-75">
     <div class="flex flex-col h-full justify-end gap-2">
-        <h2 class="text-displaySmall">Тренінг, воркшоп</h2>
-        <h3 class="text-caption">Для бізнесів</h3>
+        <h2 class="text-2xl sm:text-3xl md:text-displaySmall">
+            Тренінг, воркшоп
+        </h2>
+        <h3 class="text-sm sm:text-base md:text-caption">Для бізнесів</h3>
     </div>
 
     <div class="flex flex-col gap-6 h-full justify-center">
         <div class="flex flex-col">
-            <p class="text-caption">
+            <p class="text-sm sm:text-base md:text-caption">
                 Це навчання для вашої команди, яке поєднує ігрові методи з
                 фасилітаційними техніками для вирішення вашого бізнес-запиту.
                 <b
@@ -23,7 +25,9 @@ const { class: className, ...rest } = Astro.props;
             </p>
         </div>
 
-        <ul class="text-caption space-y-5 list-disc list-outside ml-6">
+        <ul
+            class="text-sm sm:text-base md:text-caption space-y-5 list-disc list-outside ml-6"
+        >
             <li>
                 <b>Клієнтський сервіс</b> — для бізнесів, які прагнуть покращити
                 досвід своїх клієнтів.
@@ -34,7 +38,7 @@ const { class: className, ...rest } = Astro.props;
             </li>
         </ul>
 
-        <p class="text-caption">
+        <p class="text-sm sm:text-base md:text-caption">
             <b
                 >Також можливе створення тренінгу під будь-який інший
                 специфічний запит вашого бізнесу.</b
