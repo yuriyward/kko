@@ -48,14 +48,14 @@ const workSteps = [
                 workSteps.map((step, index) => (
                     <>
                         <header
-                            class={`holder__head ${step.bgClass} py-8 sticky w-full transition-all duration-300 ease-in-out h-auto`}
+                            class={`holder__head ${step.bgClass} py-10 md:py-8 sticky w-full transition-all duration-300 ease-in-out h-auto`}
                             style={`--t:${index}; --b:${workSteps.length - 1 - index};`}
                         >
                             <div class="container mx-auto px-4 flex justify-center items-center h-full gap-2">
                                 {/* <span class="text-displayXSmall font-bold">
                                     {step.id}
                                 </span> */}
-                                <span class="text-displaySmall">
+                                <span class="text-caption md:text-displaySmall">
                                     {step.title}
                                 </span>
                             </div>
@@ -80,7 +80,7 @@ const workSteps = [
                                     )}
                                 </div>
                                 <div class="content">
-                                    <h2 class="text-displayMedium mb-4">
+                                    <h2 class="text-displayXSmall md:text-displayMedium mb-4">
                                         {step.title}
                                     </h2>
                                     <p class="text-bodyMedium md:text-displayXSmall max-w-screen-sm">
@@ -99,8 +99,15 @@ const workSteps = [
 <style>
     .holder__head {
         z-index: 10;
-        bottom: calc(var(--b) * 6em);
-        top: calc(var(--t) * 6em);
+        bottom: calc(var(--b) * 6.5em);
+        top: calc(var(--t) * 6.5em);
+    }
+
+    @media (min-width: 768px) {
+        .holder__head {
+            bottom: calc(var(--b) * 6em);
+            top: calc(var(--t) * 6em);
+        }
     }
 
     .holder__item {

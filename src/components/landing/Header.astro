@@ -3,25 +3,63 @@ import KKoLogo from "@assets/kko-logo.svg";
 import ButtonAction from "@components/button/ButtonAction.astro";
 ---
 
-<header class="flex pt-4 px-8 justify-between">
-    <div class="flex gap-4 lg:gap-12 items-end">
-        <KKoLogo class={"cursor-pointer h-11"} />
-        <nav class="md:flex hidden gap-4 lg:gap-12 text-caption">
-            <a href="#packages">Пакети</a>
-            <a href="#about-me">Про мене</a>
-            <a href="#blog">Блог</a>
-        </nav>
-    </div>
-    <div class="flex gap-4 items-center">
-        <!-- <div class="text-caption hidden md:flex">
-            <span class="underline cursor-pointer">UA</span>
-            <span>/</span>
-            <span class="cursor-pointer">EN</span>
-        </div> -->
+<header
+    class="header fixed top-0 left-0 w-full transition-transform duration-300 z-50"
+>
+    <div class="flex justify-between">
+        <div
+            class="flex gap-4 lg:gap-12 items-end backdrop-blur-sm rounded-b-lg px-4 py-2 pt-4 pl-8 rounded-3xl"
+        >
+            <KKoLogo class={"cursor-pointer h-11"} />
+            <nav class="md:flex hidden gap-4 lg:gap-12 text-caption">
+                <a href="#packages">Пакети</a>
+                <a href="#about-me">Про мене</a>
+                <a href="#blog">Блог</a>
+            </nav>
+        </div>
+        <div class="flex gap-4 items-center pt-4 pr-8">
+            <!-- <div class="text-caption hidden md:flex">
+                <span class="underline cursor-pointer">UA</span>
+                <span>/</span>
+                <span class="cursor-pointer">EN</span>
+            </div> -->
 
-        <ButtonAction
-            text="Розпочати проект"
-            href="https://cal.com/kateryna-koshenko-kkhqct"
-        />
+            <ButtonAction
+                text="Розпочати проект"
+                href="https://cal.com/kateryna-koshenko-kkhqct"
+            />
+        </div>
     </div>
 </header>
+
+<script>
+    // Variables for scroll functionality
+    let lastScrollY = window.scrollY;
+    const header = document.querySelector(".header") as HTMLElement;
+
+    // Only proceed if header exists
+    if (header) {
+        // Add padding to body to account for fixed header
+        document.body.style.paddingTop = header.offsetHeight + "px";
+
+        // Function to handle scroll events
+        const handleScroll = () => {
+            const currentScrollY = window.scrollY;
+
+            // Show/hide header based on scroll direction
+            if (currentScrollY > lastScrollY) {
+                // Scrolling down - hide header
+                header.style.transform = "translateY(-100%)";
+            } else {
+                // Scrolling up - show header
+                header.style.transform = "translateY(0)";
+            }
+
+            // Update last scroll position
+            lastScrollY = currentScrollY;
+        };
+
+        // Add scroll event listener
+        window.addEventListener("scroll", handleScroll);
+    }
+</script>
