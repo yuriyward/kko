@@ -24,12 +24,14 @@ import { Vimeo, YouTube } from "astro-embed";
             <!-- 9:16 Aspect Ratio (16/9 * 100) = 177.78% -->
             <div class="relative w-full pt-[177.78%]">
                 <div class="absolute inset-0">
-                    <Vimeo
+                    <wistia-player media-id="0t6z8t3v1c" aspect="0.5625"
+                    ></wistia-player>
+                    <!-- <Vimeo
                         class="w-full h-full object-cover rounded-3xl"
                         poster="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExYTV2emZieDV0bTJqZm5xM3RweHRtYjR2YWFubTFkMGxuOHg5bzlxYSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/XJCOE8LcgVg3WzHYmc/giphy.gif"
                         id="1070681275"
                         params="color=6C8FE6&byline=0&portrait=0&loop=1&title=0"
-                    />
+                    /> -->
                 </div>
             </div>
         </div>
@@ -59,3 +61,16 @@ import { Vimeo, YouTube } from "astro-embed";
         </div>
     </div>
 </section>
+
+<script src="https://fast.wistia.com/player.js" async></script>
+<script src="https://fast.wistia.com/embed/0t6z8t3v1c.js" async type="module"
+></script>
+<style>
+    wistia-player[media-id="0t6z8t3v1c"]:not(:defined) {
+        background: center / contain no-repeat
+            url("https://fast.wistia.com/embed/medias/0t6z8t3v1c/swatch");
+        display: block;
+        filter: blur(5px);
+        padding-top: 177.78%;
+    }
+</style>
